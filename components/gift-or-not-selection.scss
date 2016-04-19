@@ -1,0 +1,39 @@
+$o-forms-is-silent: false;
+@import "o-forms/main";
+
+.gift-or-not {
+
+	.gift-or-not__option {
+		margin: $spacing-unit 0;
+	}
+
+	.gift-or-not__option-icon {
+		position: absolute;
+		top: 1px;
+
+		&.gift-or-not__option-icon--gift {
+			@include nextIcon(gift, #C0B0A4, 23);
+		}
+
+		&.gift-or-not__option-icon--non-gift {
+			@include nextIcon(email, #C0B0A4, 23);
+		}
+	}
+
+	.gift-or-not__option-text {
+		position: relative;
+		padding-left: 35px;
+		font-size: 15px;
+		line-height: 18px;
+	}
+
+	.gift-or-not__gift-note {
+		margin-top: 2px;
+		font-size: 13px;
+	}
+
+	.gift-or-not__gift-count {
+		font-weight: 600; // semi bold
+	}
+
+}

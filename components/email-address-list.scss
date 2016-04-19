@@ -1,0 +1,65 @@
+$o-forms-is-silent: false;
+$o-buttons-is-silent: false;
+@import "o-forms/main";
+@import "o-buttons/main";
+
+.email-address {
+
+	margin: $spacing-unit 0 0;
+
+	.email-address__label {
+		font-size: 15px;
+		margin-bottom: $spacing-unit;
+	}
+
+	.email-address__item {
+		display: table;
+		margin: $spacing-unit 0 0;
+	}
+
+	.email-address__input {
+		display: table-cell;
+		width: 100%;
+	}
+
+	.email-address__button {
+		display: table-cell;
+		vertical-align: top;
+		width: 1%;
+
+		button {
+			padding: 0;
+			margin-left: 12px;
+			border-color: #cec6b9;
+
+			i {
+				text-indent: 100%;
+				overflow: hidden;
+			}
+
+			.email-address__button--add {
+				@include nextIcon(plus, #666666, 16);
+			}
+
+			.email-address__button--remove {
+				@include nextIcon(cross_disk, #666666, 16);
+			}
+		}
+	}
+
+	.email-address__sub-note {
+		color: #262626;
+		font-size: 13px;
+	}
+
+
+	.email-address__gift-note {
+		margin-top: 8px;
+		font-size: 13px;
+	}
+
+	.email-address__gift-count {
+		font-weight: 600; // semi bold
+	}
+
+}
