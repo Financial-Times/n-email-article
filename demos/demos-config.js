@@ -1,21 +1,21 @@
 import React from 'react'
 
 const apiConstants = {
-	CREDIT_INFO: 'CREDIT_INFO',
-	GIFT: 'GIFT',
-	NON_GIFT: 'NON_GIFT'
+	CREDIT_INFO: 'Credit info',
+	GIFT: 'Gift',
+	NON_GIFT: 'Non-gift'
 }
 
-const apiConstantToNames = {
+const apiConstantToFunctionNames = {
 	CREDIT_INFO: 'creditInfo',
 	GIFT: 'gift',
 	NON_GIFT: 'nonGift'
 }
 
 const responseConstants = {
-	GOOD_RESPONSE: 'GOOD_RESPONSE',
-	UNEXPECTED_RESPONSE: 'UNEXPECTED_RESPONSE',
-	ERROR: 'ERROR'
+	GOOD_RESPONSE: 'Good response',
+	UNEXPECTED_RESPONSE: 'Unexpected response',
+	ERROR: 'Error'
 }
 
 export default class extends React.Component {
@@ -36,9 +36,9 @@ export default class extends React.Component {
 
 	getResponse (api, responseType, credit, responseTime) {
 		let json
-		switch (responseType) {
+		switch (responseConstants[responseType]) {
 			case responseConstants.GOOD_RESPONSE:
-					if (api === apiConstants.CREDIT_INFO)
+					if (apiConstants[api] === apiConstants.CREDIT_INFO)
 							json = { credits: { remainingCredits: credit }}
 					else
 							json = {results: [{recipient: 'test-forward@ftqa.org', success: true, message: 'ok'}]}
@@ -57,7 +57,7 @@ export default class extends React.Component {
 	createMockApis () {
 		const apiResponses = {}
 		Object.keys(apiConstants).forEach(api => {
-			apiResponses[apiConstantToNames[api]] = this.getResponse(api, this.state[api], this.state.credit, this.state.responseTime)
+			apiResponses[apiConstantToFunctionNames[api]] = this.getResponse(api, this.state[api], this.state.credit, this.state.responseTime)
 		})
 		return apiResponses
 	}
@@ -101,14 +101,14 @@ export default class extends React.Component {
 										 checked={this.state[api] === response}
 										 onChange={() => this.onApiResponseChange(api, response)}/>
 							<label className="o-forms-label" htmlFor={id}>
-								{response}
+								{responseConstants[response]}
 							</label>
 						</div>
 				)
 			})
 			return (
 					<div>
-						<h3>{api}</h3>
+						<h3>{apiConstants[api]}</h3>
 						{responses}
 					</div>
 			)
