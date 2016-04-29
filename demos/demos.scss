@@ -1,22 +1,29 @@
 @import "next-sass-setup/main";
 
 html, body {
+	min-width: 100%;
 	min-height: 100%;
-}
-
-body {
 	background-color: #ddd;
 }
 
-#root {
+.demos__config,
+.demos__article {
+	float: left;
 	width: 375px;
-	padding: 30px;
+	margin: $spacing-unit;
+	padding: $spacing-unit;
+	background-color: #fff;
+}
+
+.demos__config-title,
+.demos__article-title {
+	margin-top: 0;
 }
 
 .demos__email {
 	border: 0;
 	padding: 0;
-	margin: 16px 0;
+	margin: 0 0 16px 0;
 
 	i {
 		@include nextIcon(email, #333333, 22);

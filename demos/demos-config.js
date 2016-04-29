@@ -117,7 +117,7 @@ export default class extends React.Component {
 		const credit = (
 				<div className="o-forms-group">
 					<label htmlFor="demos__credit" className="o-forms-label">Gift credit</label>
-					<input type="number" className="o-forms-number" id="demos__credit"
+					<input type="number" className="o-forms-text" id="demos__credit"
 								 value={this.state.credit} onChange={(event) => this.onCreditChange(parseInt(event.target.value, 10))}></input>
 				</div>
 		)
@@ -125,13 +125,14 @@ export default class extends React.Component {
 		const responseTime = (
 				<div className="o-forms-group">
 					<label htmlFor="demos__response-time" className="o-forms-label">Response time (ms)</label>
-					<input type="number" className="o-forms-number" id="demos__response-time"
+					<input type="number" className="o-forms-text" id="demos__response-time"
 								 value={this.state.responseTime} onChange={(event) => this.onResponseTimeChange(parseInt(event.target.value, 10))}></input>
 				</div>
 		)
 
 		return (
 				<div>
+					<h2 className="demos__config-title">Configure demo</h2>
  					{apiResponses}
 					{credit}
 					{responseTime}
