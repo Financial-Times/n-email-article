@@ -42,7 +42,7 @@ $o-buttons-is-silent: false;
 			}
 
 			.email-address__button--remove {
-				@include nextIcon(cross_disk, #666666, 16);
+				@include nextIcon(minus, #666666, 16);
 			}
 		}
 	}
