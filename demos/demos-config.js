@@ -118,7 +118,7 @@ export default class extends React.Component {
 				<div>
 					<label htmlFor="demos__credit" className="o-forms-label">Gift credit</label>
 					<input type="number" className="o-forms-number" id="demos__credit"
-								 value={this.state.credit} onChange={(event) => this.onCreditChange(event.target.value)}></input>
+								 value={this.state.credit} onChange={(event) => this.onCreditChange(parseInt(event.target.value, 10))}></input>
 				</div>
 		)
 
@@ -126,7 +126,7 @@ export default class extends React.Component {
 				<div>
 					<label htmlFor="demos__response-time" className="o-forms-label">Response time (ms)</label>
 					<input type="number" className="o-forms-number" id="demos__response-time"
-								 value={this.state.responseTime} onChange={(event) => this.onResponseTimeChange(event.target.value)}></input>
+								 value={this.state.responseTime} onChange={(event) => this.onResponseTimeChange(parseInt(event.target.value, 10))}></input>
 				</div>
 		)
 
