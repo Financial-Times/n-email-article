@@ -96,7 +96,7 @@ export default class extends React.Component {
 			const responses = Object.keys(responseConstants).map(response => {
 				const id = `demos__${api}--${response}`
 				return (
-						<div className="o-forms-group">
+						<div key={id} className="o-forms-group">
 							<input type="radio" className="o-forms-radio" id={id}
 										 checked={this.state[api] === response}
 										 onChange={() => this.onApiResponseChange(api, response)}/>
@@ -107,7 +107,7 @@ export default class extends React.Component {
 				)
 			})
 			return (
-					<div>
+					<div key={api}>
 						<h3>{apiConstants[api]}</h3>
 						{responses}
 					</div>

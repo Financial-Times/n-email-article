@@ -30,7 +30,6 @@ export default class extends React.Component {
 		this.init()
 		// mock the API calls
 		Object.keys(apiResponses).map(api => this.data.api[api] = apiResponses[api])
-		this.forceUpdate()
 	}
 
 	onToggleOpen (id) {
