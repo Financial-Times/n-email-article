@@ -30,23 +30,4 @@ then open in the web browser:
 
 ## Usage
 
-In your project:
-
-```sh
-bower install n-email-article
-```
-
-then in your CSS file:
-
-```css
-@import "n-email-article/main"
-```
-
-and your JS file (assuming ES2015):
-
-```js
-import { EmailArticle } from 'n-email-article';
-
-const container = document.querySelector('[data-n-email-article]');
-new EmailArticle(container);
-```
+See [demos](./demos) and search for `n-email-article` in [next-article](https://github.com/financial-times/next-article) for actual usage examples.
