@@ -8,7 +8,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "postinstall": "bower install"
+    "postinstall": "bower install --config.registry.search=http://registry.origami.ft.com --config.registry.search=https://bower.herokuapp.com"
   },
   "dependencies": {
     "react": "^15.0.1",
