@@ -8,12 +8,12 @@ export default class {
 		this.api = api
 	}
 	
-	notifySuccess (message) {
-		return () => { nNotification.show({ title: 'Success.', content: message, type: 'success' })}
+	notifySuccess (title, content) {
+		return () => { nNotification.show({ title: title, content: content, type: 'success' })}
 	}
 
-	notifyError (message) {
-		return () => { nNotification.show({ title: 'Error.', content: message, type: 'error' })}
+	notifyError (title, content) {
+		return () => { nNotification.show({ title: title, content: content, type: 'error' })}
 	}
 
 	toggleOpenTop () {
@@ -39,7 +39,7 @@ export default class {
 			return actions.api.creditInfo()
 					.then(response => response.json())
 					.then(json => dispatch(actions.handleCreditInfoResponse(json)))
-					.catch(() => dispatch(actions.notifyError('Could not get gift article credit information.')))
+					.catch(() => dispatch(actions.notifyError('Oops.', 'We\'re unable to get gift article credit information. Please try again')))
 		}
 	}
 
@@ -82,12 +82,12 @@ export default class {
 							const remainder = state.credit - count
 							message += `. You can send ${remainder} more gift articles this month`
 						}
-						dispatch(actions.notifySuccess(message))
+						dispatch(actions.notifySuccess('Sent.', message))
 					})
 					.then(() => dispatch(actions.getCreditInfo()))
 					.catch(() => {
 						dispatch(actions.handleSendError())
-						dispatch(actions.notifyError('We have not been able to send this article. Please try again'))
+						dispatch(actions.notifyError('Oops.', 'We\'re unable to send this article right now. Please try again'))
 					})
 		}
 	}
