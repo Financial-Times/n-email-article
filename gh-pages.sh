@@ -1,8 +1,5 @@
 #!/bin/bash
 
-git config user.name "Ben Fletcher"
-git config user.email "bjfletcher@gmail.com"
-
 # PUSH TO GH-PAGES
 
 # Move to a clean gh-pages branch
