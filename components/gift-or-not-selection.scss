@@ -27,6 +27,14 @@ $o-forms-is-silent: false;
 		line-height: 18px;
 	}
 
+	// the UX would like just the label icon faded out, leaving the label text alone
+	.o-forms-radio:disabled + .o-forms-label {
+		opacity: 1;
+		.gift-or-not__option-icon {
+			opacity: 0.4;
+		}
+	}
+
 	.gift-or-not__gift-note {
 		margin-top: 2px;
 		font-size: 13px;
@@ -37,3 +45,4 @@ $o-forms-is-silent: false;
 	}
 
 }
+
