@@ -69,7 +69,7 @@ export default class {
 			const state = getState()
 			dispatch({ type: constants.SEND })
 			const fetch = state.isGift ? actions.api.gift : actions.api.nonGift
-			return fetch()
+			return fetch(state.emailAddresses)
 					.then(response => response.json())
 					.then(json => {
 						dispatch(actions.handleSendResponse(json))

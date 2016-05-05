@@ -4,12 +4,30 @@ export default class {
 		return fetch('/rtcl-email/actions/credits', { credentials: 'same-origin' })
 	}
 
-	gift () {
-		return fetch('/rtcl-email/actions/gift', { credentials: 'same-origin' })
+	gift (emailAddresses) {
+		return fetch('/rtcl-email/actions/gift', {
+			credentials: 'same-origin',
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				recipients: emailAddresses
+			})
+		})
 	}
 
-	nonGift () {
-		return fetch('/rtcl-email/actions/send', { credentials: 'same-origin' })
+	nonGift (emailAddresses) {
+		return fetch('/rtcl-email/actions/send', {
+			credentials: 'same-origin',
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				recipients: emailAddresses
+			})
+		})
 	}
 
 }
