@@ -20,6 +20,7 @@ $o-buttons-is-silent: false;
 
 	&.email-article--closed {
 		max-height: 0;
+		border: 0;
 		transition: max-height .15s ease-out;
 		overflow: hidden;
 	}
