@@ -24,12 +24,16 @@ export default class extends React.Component {
 		this.data = new EmailArticleData()
 	}
 
-	onDemosConfigChange (apiResponses) {
+	onDemosConfigApisChange (apiResponses) {
 		// get rid of old stuff and do it all over again
 		Array.from(document.querySelectorAll('[data-n-article-email-container]')).forEach(view => view.innerHTML = null)
 		this.init()
 		// mock the API calls
 		Object.keys(apiResponses).map(api => this.data.api[api] = apiResponses[api])
+	}
+
+	onDemosConfigModeChange (mode) {
+		console.log(`mode: ${mode}`)
 	}
 
 	onToggleOpen (id) {
@@ -53,7 +57,10 @@ export default class extends React.Component {
 		return (
 				<div className="article" data-content-id="737195aa-1347-11e6-839f-292294709880">
 					<div className="demos__config">
-						<DemosConfig onChange={(apiResponses) => this.onDemosConfigChange(apiResponses)} />
+						<DemosConfig
+							onModeChange={(mode) => this.onDemosConfigModeChange(mode)}
+							onApisChange={(apiResponses) => this.onDemosConfigApisChange(apiResponses)}
+						/>
 					</div>
 					<div className="demos__article">
 						<h1 className="demos__article-title">Article title</h1>
