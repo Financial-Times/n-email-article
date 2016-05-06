@@ -51,7 +51,7 @@ export default class extends React.Component {
 		// please note that we're not using React ways of doing things here
 		// as `next-article` doesn't use React
 		return (
-				<div>
+				<div className="article" data-content-id="737195aa-1347-11e6-839f-292294709880">
 					<div className="demos__config">
 						<DemosConfig onChange={(apiResponses) => this.onDemosConfigChange(apiResponses)} />
 					</div>

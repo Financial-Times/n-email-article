@@ -7,6 +7,7 @@ const defaultState = {
 	credit: 0,
 	isGift: true,
 	emailAddresses: [''],
+	emailAddressErrors: [false],
 	isSending: false
 }
 
@@ -52,6 +53,11 @@ export default function reducer (state = defaultState, action) {
 					return Object.assign({}, state, {
 						emailAddresses: state.emailAddresses.filter((x, i) => i !== action.index)
 					})
+
+		case actions.VALIDATION_RESULTS:
+				return Object.assign({}, state, {
+						emailAddressErrors: action.results
+				})
 
 		case actions.SEND:
 					return Object.assign({}, state, { isSending: true })
