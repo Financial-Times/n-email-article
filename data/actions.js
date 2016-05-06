@@ -2,6 +2,10 @@ import { actions as constants } from './constants'
 
 import nNotification from 'n-notification'
 
+function validateEmail (email) {
+	return !email.match(/^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/)
+}
+
 export default class {
 	
 	constructor (api) {
@@ -63,12 +67,24 @@ export default class {
 		return { type: constants.REMOVE_EMAIL_ADDRESS, index: index }
 	}
 
+	validateThenSend () {
+		const actions = this
+		return (dispatch, getState) => {
+			const state = getState()
+			const results = state.emailAddresses.map(validateEmail)
+			dispatch({ type: constants.VALIDATION_RESULTS, results: results })
+			if (results.indexOf(true) === -1) {
+				dispatch(actions.send())
+			}
+		}
+	}
+
 	send () {
 		const actions = this
 		return (dispatch, getState) => {
 			const state = getState()
 			dispatch({ type: constants.SEND })
-			const articleId = document.querySelector('.article').getAttribute('data-content-id');
+			const articleId = document.querySelector('.article').dataset.contentId
 			const fetch = state.isGift ? actions.api.gift : actions.api.nonGift
 			return fetch(state.emailAddresses, articleId)
 					.then(response => response.json())

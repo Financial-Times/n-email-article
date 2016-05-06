@@ -4,7 +4,7 @@ import GiftOrNotSelection from './gift-or-not-selection';
 import EmailAddressList from './email-address-list';
 
 export default ({ isReady, isOpen, isGift, onIsGiftChange, credit,
-		emailAddresses, onEmailAddressChange, onAddEmailAddress, onRemoveEmailAddress,
+		emailAddresses, emailAddressErrors, onEmailAddressChange, onAddEmailAddress, onRemoveEmailAddress,
 		onSend, isSending, onClose }) => (
 	<div className={`email-article email-article--${isReady && isOpen ? 'open' : 'closed'}`}>
 		<button onClick={onClose} type="button" className="o-buttons o-buttons--medium email-article__close"><i>Close</i></button>
@@ -18,6 +18,7 @@ export default ({ isReady, isOpen, isGift, onIsGiftChange, credit,
 			<div className="email-article__section-break"></div>
 			<EmailAddressList
 					items={emailAddresses}
+					errors={emailAddressErrors}
 					onItemChange={onEmailAddressChange}
 					onAdd={onAddEmailAddress}
 					onRemove={onRemoveEmailAddress}

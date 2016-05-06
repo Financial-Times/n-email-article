@@ -17,15 +17,19 @@ function giftNote (items, isGift, credit) {
 	)
 }
 
-function inputs (items, onItemChange, onAdd, onRemove, isGift, credit) {
+function inputs (items, errors, onItemChange, onAdd, onRemove, isGift, credit) {
+	const maxItems = isGift ? credit : 10
 	return items.map((address, index) => {
-		const maxItems = isGift ? credit : 10
 		const action = index + 1 === items.length && index + 1 < maxItems ? 'add' : 'remove'
+		const error = !errors[index] ? null : (
+			<div className="email-address__error o-forms-errortext">Please enter a valid email</div>
+		)
 		// TODO remove button's div container
 		return (
-				<div key={index} className="email-address__item">
-					<input type="text" className="o-forms-text email-address__input" value={address}
+				<div key={index} className={`email-address__item o-forms-group ${error ? 'o-forms--error' : ''}`}>
+					<input type="email" className="o-forms-text email-address__input" value={address}
 								 onChange={event => onItemChange(index, event.target.value)}></input>
+					{error}
 					<div className="email-address__button">
 						<button type="button" className="o-buttons o-buttons--big"
 										onClick={() => action === 'add' ? onAdd() : onRemove(index)}>
@@ -37,14 +41,14 @@ function inputs (items, onItemChange, onAdd, onRemove, isGift, credit) {
 	})
 }
 
-export default ({ items, onItemChange, onAdd, onRemove, isGift, credit }) => (
+export default ({ items, errors, onItemChange, onAdd, onRemove, isGift, credit }) => (
 		<div className="email-address">
 			<div className="email-address__label">
 				Enter recipient’s email address
 			</div>
 			{subNote(isGift)}
 			<div className="email-address__list">
-				{inputs(items, onItemChange, onAdd, onRemove, isGift, credit)}
+				{inputs(items, errors, onItemChange, onAdd, onRemove, isGift, credit)}
 			</div>
 			{giftNote(items, isGift, credit)}
 		</div>
