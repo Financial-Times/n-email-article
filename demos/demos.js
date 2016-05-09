@@ -24,10 +24,15 @@ export default class extends React.Component {
 		this.data = new EmailArticleData()
 	}
 
-	onDemosConfigChange (apiResponses) {
+	reset () {
 		// get rid of old stuff and do it all over again
 		Array.from(document.querySelectorAll('[data-n-article-email-container]')).forEach(view => view.innerHTML = null)
 		this.init()
+	}
+
+	onDemosConfigChange (mode, apiResponses) {
+		this.reset()
+		this.mode = mode
 		// mock the API calls
 		Object.keys(apiResponses).map(api => this.data.api[api] = apiResponses[api])
 	}
@@ -37,7 +42,13 @@ export default class extends React.Component {
 		const isTop = id === 'top'
 		// lazily load the view
 		if (!this.views[id]) {
-			const props = { isTop: isTop, store: this.data.store, actions: this.data.actions, dispatch: this.data.dispatch }
+			const props = {
+				mode: this.mode,
+				isTop: isTop,
+				store: this.data.store,
+				actions: this.data.actions,
+				dispatch: this.data.dispatch
+			}
 			this.views[id] = React.createElement(EmailArticleView, props)
 			const container = document.querySelector(`[data-n-article-email-${id}-container]`)
 			ReactDOM.render(this.views[id], container)
@@ -53,7 +64,9 @@ export default class extends React.Component {
 		return (
 				<div className="article" data-content-id="737195aa-1347-11e6-839f-292294709880">
 					<div className="demos__config">
-						<DemosConfig onChange={(apiResponses) => this.onDemosConfigChange(apiResponses)} />
+						<DemosConfig
+							onChange={(mode, apiResponses) => this.onDemosConfigChange(mode, apiResponses)}
+						/>
 					</div>
 					<div className="demos__article">
 						<h1 className="demos__article-title">Article title</h1>

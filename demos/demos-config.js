@@ -1,5 +1,13 @@
 import React from 'react'
 
+import { modes as modeConstants } from '../data/constants'
+
+export const modeToLabels = {
+	GIFT_OR_SUB: 'Gift or subcribers',
+	SUB_ONLY: 'Subscribers only',
+	FREE: 'Free'
+}
+
 const apiConstants = {
 	CREDIT_INFO: 'Credit info',
 	GIFT: 'Gift',
@@ -24,13 +32,14 @@ export default class extends React.Component {
 		super(props)
 		const state = {}
 		// set defaults
+		state.mode = Object.keys(modeConstants)[0]
 		state.credit = 10
 		state.responseTime = 0
 		Object.keys(apiConstants).forEach(api => {
 			state[api] = Object.keys(responseConstants)[0]
 		})
 		this.state = state
-		// update the mock functions
+
 		this.update()
 	}
 
@@ -66,14 +75,12 @@ export default class extends React.Component {
 		const partialState = {}
 		partialState[api] = response
 		this.setState(partialState, () => {
-			// update the mock functions
 			this.update()
 		})
 	}
 
 	onCreditChange (credit) {
 		this.setState({credit: credit}, () => {
-			// update the mock functions
 			this.update()
 		})
 	}
@@ -85,12 +92,38 @@ export default class extends React.Component {
 		})
 	}
 
+	onModeChange (mode) {
+		this.setState({mode: mode}, () => {
+			this.update()
+		})
+	}
+
 	update () {
-		// update the mock functions
-		this.props.onChange(this.createMockApis())
+		this.props.onChange(this.state.mode, this.createMockApis())
 	}
 
 	render () {
+
+		const modeOptions = Object.keys(modeConstants).map(mode => {
+			const id = `demos__mode--${mode}`
+			return (
+					<div key={mode} className="o-forms-group">
+						<input type="radio" className="o-forms-radio" id={id}
+									 checked={this.state.mode === mode}
+									 onChange={() => this.onModeChange(mode)}/>
+						<label className="o-forms-label" htmlFor={id}>
+							{modeToLabels[mode]}
+						</label>
+					</div>
+			)
+		})
+
+		const modes = (
+			<div>
+				<h3>Mode</h3>
+				{modeOptions}
+			</div>
+		)
 
 		const apiResponses = Object.keys(apiConstants).map(api => {
 			const responses = Object.keys(responseConstants).map(response => {
@@ -133,6 +166,7 @@ export default class extends React.Component {
 		return (
 				<div>
 					<h2 className="demos__config-title">Configure demo</h2>
+					{modes}
  					{apiResponses}
 					{credit}
 					{responseTime}

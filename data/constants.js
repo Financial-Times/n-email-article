@@ -14,3 +14,9 @@ export const actions = {
 	CLOSE_TOP: 'CLOSE_TOP',
 	CLOSE_BOTTOM: 'CLOSE_BOTTOM'
 }
+
+export const modes = {
+	GIFT_OR_SUB: 'GIFT_OR_SUB',
+	SUB_ONLY: 'SUB_ONLY',
+	FREE: 'FREE'
+}
