@@ -1,7 +1,9 @@
 import React from 'react'
 
-const modeConstants = {
-	GIFT_OR_SUB: 'Gift or subscribers',
+import { modes as modeConstants } from '../data/constants'
+
+export const modeToLabels = {
+	GIFT_OR_SUB: 'Gift or subcribers',
 	SUB_ONLY: 'Subscribers only',
 	FREE: 'Free'
 }
@@ -110,7 +112,7 @@ export default class extends React.Component {
 									 checked={this.state.mode === mode}
 									 onChange={() => this.onModeChange(mode)}/>
 						<label className="o-forms-label" htmlFor={id}>
-							{modeConstants[mode]}
+							{modeToLabels[mode]}
 						</label>
 					</div>
 			)

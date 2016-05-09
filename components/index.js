@@ -1,4 +1,5 @@
 import React from 'react';
+import { modes } from '../data/constants';
 import EmailSubOrGiftArticle from './email-sub-or-gift-article';
 import EmailSubOnlyArticle from './email-sub-only-article';
 import EmailFreeArticle from './email-free-article';
@@ -21,12 +22,12 @@ export default class extends React.Component {
 	render () {
 		const actions = this.props.actions
 		const dispatch = this.props.dispatch
-		if (this.props.mode === 'GIFT_OR_SUB') {
+		if (this.props.mode === modes.GIFT_OR_SUB) {
 			return (
 					<EmailSubOrGiftArticle
 							isReady={this.state.isReady}
 							isOpen={this.props.isTop ? this.state.isOpenTop : this.state.isOpenBottom}
-							isGift={this.props.mode === 'FREE' ? false : this.state.isGift}
+							isGift={this.state.isGift}
 							onIsGiftChange={isGift => dispatch(actions.isGiftChange(isGift))}
 							credit={this.state.credit}
 							emailAddresses={this.state.emailAddresses}
@@ -39,7 +40,7 @@ export default class extends React.Component {
 							onClose={() => dispatch(this.props.isTop ? actions.closeTop() : actions.closeBottom())}
 					/>
 			)
-		} else if (this.props.mode === 'SUB_ONLY') {
+		} else if (this.props.mode === modes.SUB_ONLY) {
 			return (
 					<EmailSubOnlyArticle
 							isReady={this.state.isReady}
@@ -54,7 +55,7 @@ export default class extends React.Component {
 							onClose={() => dispatch(this.props.isTop ? actions.closeTop() : actions.closeBottom())}
 					/>
 			)
-		} else if (this.props.mode === 'FREE') {
+		} else if (this.props.mode === modes.FREE) {
 			return (
 					<EmailFreeArticle
 							isReady={this.state.isReady}
