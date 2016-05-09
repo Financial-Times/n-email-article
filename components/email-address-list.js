@@ -1,7 +1,7 @@
 import React from 'react';
 
-function subNote (isGift) {
-	if (!isGift) return (
+function subNote (isGift, showSubNote) {
+	if (!isGift && showSubNote) return (
 			<div className="email-address__sub-note">
 				This recipient may need to be a subscriber to read this content
 			</div>
@@ -24,7 +24,6 @@ function inputs (items, errors, onItemChange, onAdd, onRemove, isGift, credit) {
 		const error = !errors[index] ? null : (
 			<div className="email-address__error o-forms-errortext">Please enter a valid email</div>
 		)
-		// TODO remove button's div container
 		return (
 				<div key={index} className={`email-address__item o-forms-group ${error ? 'o-forms--error' : ''}`}>
 					<input type="email" className="o-forms-text email-address__input" value={address}
@@ -41,12 +40,12 @@ function inputs (items, errors, onItemChange, onAdd, onRemove, isGift, credit) {
 	})
 }
 
-export default ({ items, errors, onItemChange, onAdd, onRemove, isGift, credit }) => (
+export default ({ items, errors, onItemChange, onAdd, onRemove, isGift, credit, showSubNote }) => (
 		<div className="email-address">
 			<div className="email-address__label">
 				Enter recipient’s email address
 			</div>
-			{subNote(isGift)}
+			{subNote(isGift, showSubNote)}
 			<div className="email-address__list">
 				{inputs(items, errors, onItemChange, onAdd, onRemove, isGift, credit)}
 			</div>

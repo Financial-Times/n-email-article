@@ -1,9 +1,9 @@
 import React from 'react'
 
 const modeConstants = {
-	FREE: 'Free',
+	GIFT_OR_SUB: 'Gift or subscribers',
 	SUB_ONLY: 'Subscribers only',
-	GIFT_OR_SUB: 'Gift or subscribers'
+	FREE: 'Free'
 }
 
 const apiConstants = {

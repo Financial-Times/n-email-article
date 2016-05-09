@@ -3,7 +3,7 @@ import React from 'react';
 import GiftOrNotSelection from './gift-or-not-selection';
 import EmailAddressList from './email-address-list';
 
-export default ({ mode, isReady, isOpen, isGift, onIsGiftChange, credit,
+export default ({ isReady, isOpen, isGift, onIsGiftChange, credit,
 		emailAddresses, emailAddressErrors, onEmailAddressChange, onAddEmailAddress, onRemoveEmailAddress,
 		onSend, isSending, onClose }) => (
 	<div className={`email-article email-article--${isReady && isOpen ? 'open' : 'closed'}`}>
@@ -24,6 +24,7 @@ export default ({ mode, isReady, isOpen, isGift, onIsGiftChange, credit,
 					onRemove={onRemoveEmailAddress}
 					isGift={isGift}
 					credit={credit}
+					showSubNote={true}
 			/>
 			<button onClick={onSend} disabled={isSending} className="email-article__submit o-buttons o-buttons--standout o-buttons--big">Send article</button>
 			<div className="email-article__footnote">
