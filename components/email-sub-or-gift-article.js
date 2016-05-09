@@ -24,7 +24,7 @@ export default ({ isReady, isOpen, isGift, onIsGiftChange, credit,
 					onRemove={onRemoveEmailAddress}
 					isGift={isGift}
 					credit={credit}
-					showSubNote={true}
+					showMaySub={true}
 			/>
 			<button onClick={onSend} disabled={isSending} className="email-article__submit o-buttons o-buttons--standout o-buttons--big">Send article</button>
 			<div className="email-article__footnote">

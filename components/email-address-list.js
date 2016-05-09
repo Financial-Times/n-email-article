@@ -1,11 +1,13 @@
 import React from 'react';
 
-function subNote (isGift, showSubNote) {
-	if (!isGift && showSubNote) return (
+function subNote (isGift, showMaySub) {
+	if (!isGift && showMaySub) {
+		return (
 			<div className="email-address__sub-note">
 				This recipient may need to be a subscriber to read this content
 			</div>
-	)
+		)
+	}
 }
 
 function giftNote (items, isGift, credit) {
@@ -40,12 +42,12 @@ function inputs (items, errors, onItemChange, onAdd, onRemove, isGift, credit) {
 	})
 }
 
-export default ({ items, errors, onItemChange, onAdd, onRemove, isGift, credit, showSubNote }) => (
+export default ({ items, errors, onItemChange, onAdd, onRemove, isGift, credit, showMaySub }) => (
 		<div className="email-address">
 			<div className="email-address__label">
 				Enter recipient’s email address
 			</div>
-			{subNote(isGift, showSubNote)}
+			{subNote(isGift, showMaySub)}
 			<div className="email-address__list">
 				{inputs(items, errors, onItemChange, onAdd, onRemove, isGift, credit)}
 			</div>

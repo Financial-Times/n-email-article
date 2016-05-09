@@ -15,7 +15,7 @@ export default ({ isReady, isOpen,
 					onItemChange={onEmailAddressChange}
 					onAdd={onAddEmailAddress}
 					onRemove={onRemoveEmailAddress}
-					showSubNote={false}
+					showMaySub={true}
 			/>
 			<button onClick={onSend} disabled={isSending} className="email-article__submit o-buttons o-buttons--standout o-buttons--big">Send article</button>
 			<div className="email-article__footnote">
