@@ -37,8 +37,8 @@ export default class extends React.Component {
 			state[api] = Object.keys(responseConstants)[0]
 		})
 		this.state = state
-		// update the mock functions
-		this.updateApis()
+
+		this.update()
 	}
 
 	getResponse (api, responseType, credit, responseTime) {
@@ -73,33 +73,31 @@ export default class extends React.Component {
 		const partialState = {}
 		partialState[api] = response
 		this.setState(partialState, () => {
-			// update the mock functions
-			this.updateApis()
+			this.update()
 		})
 	}
 
 	onCreditChange (credit) {
 		this.setState({credit: credit}, () => {
-			// update the mock functions
-			this.updateApis()
+			this.update()
 		})
 	}
 
 	onResponseTimeChange (time) {
 		this.setState({responseTime: time}, () => {
 			// update the mock functions
-			this.updateApis()
+			this.update()
 		})
-	}
-
-	updateApis () {
-		this.props.onApisChange(this.createMockApis())
 	}
 
 	onModeChange (mode) {
 		this.setState({mode: mode}, () => {
-			this.props.onModeChange(mode)
+			this.update()
 		})
+	}
+
+	update () {
+		this.props.onChange(this.state.mode, this.createMockApis())
 	}
 
 	render () {

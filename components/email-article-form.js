@@ -3,7 +3,7 @@ import React from 'react';
 import GiftOrNotSelection from './gift-or-not-selection';
 import EmailAddressList from './email-address-list';
 
-export default ({ isReady, isOpen, isGift, onIsGiftChange, credit,
+export default ({ mode, isReady, isOpen, isGift, onIsGiftChange, credit,
 		emailAddresses, emailAddressErrors, onEmailAddressChange, onAddEmailAddress, onRemoveEmailAddress,
 		onSend, isSending, onClose }) => (
 	<div className={`email-article email-article--${isReady && isOpen ? 'open' : 'closed'}`}>

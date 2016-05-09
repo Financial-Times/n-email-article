@@ -21,6 +21,7 @@ export default class extends React.Component {
 		const dispatch = this.props.dispatch
 		return (
 				<EmailArticleForm
+						mode={this.props.mode}
 						isReady={this.state.isReady}
 						isOpen={this.props.isTop ? this.state.isOpenTop : this.state.isOpenBottom}
 						isGift={this.state.isGift}
