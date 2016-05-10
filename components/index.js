@@ -8,10 +8,10 @@ export default class extends React.Component {
 
 	constructor (props) {
 		super(props)
-		this.state = props.store.getState()
 	}
 
-	componentDidMount () {
+	componentWillMount () {
+		this.setState(this.props.store.getState())
 		this.storeUnsubscribe = this.props.store.subscribe(() => this.setState(this.props.store.getState()))
 	}
 
@@ -22,7 +22,7 @@ export default class extends React.Component {
 	render () {
 		const actions = this.props.actions
 		const dispatch = this.props.dispatch
-		if (this.props.mode === modes.GIFT_OR_SUB) {
+		if (this.state.mode === modes.GIFT_OR_SUB) {
 			return (
 					<EmailSubOrGiftArticle
 							isReady={this.state.isReady}
@@ -40,7 +40,7 @@ export default class extends React.Component {
 							onClose={() => dispatch(this.props.isTop ? actions.closeTop() : actions.closeBottom())}
 					/>
 			)
-		} else if (this.props.mode === modes.SUB_ONLY) {
+		} else if (this.state.mode === modes.SUB_ONLY) {
 			return (
 					<EmailSubOnlyArticle
 							isReady={this.state.isReady}
@@ -55,7 +55,7 @@ export default class extends React.Component {
 							onClose={() => dispatch(this.props.isTop ? actions.closeTop() : actions.closeBottom())}
 					/>
 			)
-		} else if (this.props.mode === modes.FREE) {
+		} else if (this.state.mode === modes.FREE) {
 			return (
 					<EmailFreeArticle
 							isReady={this.state.isReady}

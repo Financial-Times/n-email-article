@@ -7,11 +7,12 @@ import reducer from './state'
 
 export default class {
 
-	constructor () {
+	constructor (mode) {
 		this.api = new Api()	
 		this.actions = new Actions(this.api)
 		this.store = createStore(reducer, applyMiddleware(thunk))
-		this.dispatch = action => this.store.dispatch(action)
+		this.dispatch = this.store.dispatch
+		this.dispatch(this.actions.modeChange(mode))
 	}
 
 }

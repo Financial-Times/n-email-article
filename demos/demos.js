@@ -14,25 +14,14 @@ const randomContent = (
 
 export default class extends React.Component {
 
-	constructor () {
-		super()
-	}
-
-	init () {
-		// non-React `next-article` will lazily load this React component and so we're doing similar here
-		this.views = {}
-		this.data = new EmailArticleData()
-	}
-
-	reset () {
+	onDemosConfigChange (mode, apiResponses) {
 		// get rid of old stuff and do it all over again
 		Array.from(document.querySelectorAll('[data-n-article-email-container]')).forEach(view => view.innerHTML = null)
-		this.init()
-	}
 
-	onDemosConfigChange (mode, apiResponses) {
-		this.reset()
-		this.mode = mode
+		// non-React `next-article` will lazily load this React component and so we're doing similar here
+		this.views = {}
+		this.data = new EmailArticleData(mode)
+
 		// mock the API calls
 		Object.keys(apiResponses).map(api => this.data.api[api] = apiResponses[api])
 	}

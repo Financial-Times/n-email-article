@@ -20,6 +20,10 @@ export default class {
 		return () => { nNotification.show({ title: title, content: content, type: 'error' })}
 	}
 
+	modeChange (mode) {
+		return { type: constants.MODE_CHANGE, mode: mode }
+	}
+
 	toggleOpenTop () {
 		const actions = this
 		return (dispatch, getState) => {

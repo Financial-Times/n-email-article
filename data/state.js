@@ -1,11 +1,11 @@
-import { actions } from './constants'
+import { actions, modes } from './constants'
 
 const defaultState = {
 	isReady: false,
 	isOpenTop: false,
 	isOpenBottom: false,
 	credit: 0,
-	isGift: true,
+	isGift: false,
 	emailAddresses: [''],
 	emailAddressErrors: [false],
 	isSending: false
@@ -13,6 +13,13 @@ const defaultState = {
 
 export default function reducer (state = defaultState, action) {
 	switch (action.type) {
+		case actions.MODE_CHANGE:
+				return Object.assign({}, state, {
+					mode: action.mode,
+					isReady: action.mode !== modes.GIFT_OR_SUB, // need to get credit info
+					isGift: action.mode === modes.GIFT_OR_SUB
+				})
+
 		case actions.TOGGLE_OPEN_TOP:
 				return Object.assign({}, state, { isOpenTop: !state.isOpenTop })
 
