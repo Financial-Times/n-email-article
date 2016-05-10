@@ -88,7 +88,7 @@ export default class {
 		return (dispatch, getState) => {
 			const state = getState()
 			dispatch({ type: constants.SEND })
-			const articleId = document.querySelector('.article').dataset.contentId
+			const articleId = document.querySelector('.article').getAttribute('data-content-id')
 			const fetch = state.isGift ? actions.api.gift : actions.api.nonGift
 			return fetch(state.emailAddresses, articleId)
 					.then(response => response.json())
