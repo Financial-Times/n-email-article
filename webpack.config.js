@@ -1,5 +1,3 @@
-'use strict';
-
 const path = require('path')
 const webpack = require('webpack')
 
@@ -17,7 +15,7 @@ module.exports = {
 	},
 	devtool: 'source-map',
 	resolve: {
-		modulesDirectories: ["bower_components", "node_modules"]
+		modulesDirectories: ['bower_components', 'node_modules']
 	},
 	module: {
 		loaders: [
