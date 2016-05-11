@@ -3,7 +3,9 @@ import { actions as constants } from './constants'
 import nNotification from 'n-notification'
 
 function validateEmail (email) {
-	return !email.match(/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i)
+	// return true if invalid
+	return email !== '' && !email.match(/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i)
+	
 }
 
 export default class {
@@ -76,6 +78,8 @@ export default class {
 		return (dispatch, getState) => {
 			const state = getState()
 			const results = state.emailAddresses.map(validateEmail)
+			// if all email addresses are blank, then the first one has to be an error
+			if (!state.emailAddresses.find(email => email !== '')) results[0] = true
 			dispatch({ type: constants.VALIDATION_RESULTS, results: results })
 			if (results.indexOf(true) === -1) {
 				dispatch(actions.send())
