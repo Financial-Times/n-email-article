@@ -25,7 +25,11 @@ module.exports = {
 				test: /\.jsx?$/,
 				loaders: [
 					'babel?' + JSON.stringify({
-						presets: ['es2015', 'react']
+						presets: ['es2015', 'react'],
+						plugins: [
+							// the loose: true flag is for old IE support
+							[require.resolve('babel-plugin-transform-es2015-classes'), { loose: true }]
+						]
 					}),
 					'eslint'
 				]

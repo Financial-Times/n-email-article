@@ -99,7 +99,7 @@ export default class extends React.Component {
 	}
 
 	update () {
-		this.props.onChange(this.state.mode, this.createMockApis())
+		this.props.onConfigChange(this.state.mode, this.createMockApis())
 	}
 
 	render () {

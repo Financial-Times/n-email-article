@@ -54,7 +54,7 @@ export default class extends React.Component {
 				<div className="article" data-content-id="737195aa-1347-11e6-839f-292294709880">
 					<div className="demos__config">
 						<DemosConfig
-							onChange={(mode, apiResponses) => this.onDemosConfigChange(mode, apiResponses)}
+							onConfigChange={(mode, apiResponses) => this.onDemosConfigChange(mode, apiResponses)}
 						/>
 					</div>
 					<div className="demos__article">
