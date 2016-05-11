@@ -8,7 +8,7 @@ export default ({ isReady, isOpen, isGift, onIsGiftChange, credit,
 		onSend, isSending, onClose }) => (
 	<div className={`email-article email-article--${isReady && isOpen ? 'open' : 'closed'}`}>
 		<button onClick={onClose} type="button" className="o-buttons o-buttons--medium email-article__close"><i>Close</i></button>
-		<div className="email-article__container">
+		<form noValidate onSubmit={(e) => { e.preventDefault(); onSend() }} className="email-article__container">
 			<h1 className="email-article__title">Email this subscriber-only article</h1>
 			<GiftOrNotSelection
 					isGift={isGift}
@@ -30,6 +30,6 @@ export default ({ isReady, isOpen, isGift, onIsGiftChange, credit,
 			<div className="email-article__footnote">
 				This email will show up in their inbox from the Financial Times
 			</div>
-		</div>
+		</form>
 	</div>
 );
