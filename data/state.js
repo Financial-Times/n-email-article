@@ -11,13 +11,21 @@ const defaultState = {
 	isSending: false
 }
 
+function track (state, action) {
+	// track some actions
+	if (action.type.indexOf('redux') === -1 && action.type !== actions.EMAIL_ADDRESS_CHANGE) {
+		// remove email addresses
+		const anonymousEmails = state.emailAddresses.map(email => email === '' ? '<blank>' : '<populated>')
+		const anonymousState = Object.assign({}, state, { emailAddresses: anonymousEmails })
+		document.body.dispatchEvent(new CustomEvent('oTracking.event', {
+			detail: { state: anonymousState, action: action },
+			bubbles: true
+		}))
+	}
+}
+
 export default function reducer (state = defaultState, action) {
-	// TODO: probably should not track certain actions such as EMAIL_ADDRESS_CHANGE
-	// and the actual email addresses... to be discussed
-	document.body.dispatchEvent(new CustomEvent('oTracking.event', {
-		detail: { action: action, state: state },
-		bubbles: true
-	}))
+	track(state, action)
 	switch (action.type) {
 		case actions.MODE_CHANGE:
 				return Object.assign({}, state, {
