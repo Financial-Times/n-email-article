@@ -6,23 +6,24 @@ $o-buttons-is-silent: false;
 
 .email-article {
 
-	border: solid 1px #CEC6B9;
 	background-color: #FDF8F2;
 	color: #333333;
 	font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-	box-sizing: border-box;
 
 	&.email-article--open {
 		max-height: 920px;
-		transition: max-height .25s ease-in;
+		transition: max-height .5s ease-in;
 		overflow: hidden;
 	}
 
 	&.email-article--closed {
 		max-height: 0;
-		border: 0;
-		transition: max-height .15s ease-out;
+		transition: max-height .5s ease-out;
 		overflow: hidden;
+	}
+
+	.email-article__border {
+		border: solid 1px #CEC6B9;
 	}
 
 	.email-article__close {
