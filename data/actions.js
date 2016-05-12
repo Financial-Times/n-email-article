@@ -89,7 +89,7 @@ export default class {
 			const state = getState()
 			const results = state.emailAddresses.map(validateEmail)
 			// if all email addresses are blank, then the first one has to be an error
-			if (!state.emailAddresses.find(email => email !== '')) results[0] = true
+			if (state.emailAddresses.every(email => email === '')) results[0] = true
 			dispatch({ type: constants.VALIDATION_RESULTS, results: results })
 			if (results.indexOf(true) === -1) {
 				dispatch(actions.send())

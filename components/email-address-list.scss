@@ -13,9 +13,12 @@ $o-buttons-is-silent: false;
 	}
 
 	.email-address__item {
-		display: table;
 		margin: $spacing-unit 0 0;
 		padding: 0; // overrides o-forms
+	}
+
+	.email-address__input-button {
+		display: table;
 	}
 
 	.email-address__input {

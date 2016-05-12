@@ -35,10 +35,12 @@ function inputs (items, errors, onItemChange, onAdd, onRemove, isGift, credit) {
 		)
 		return (
 				<div key={index} className={`email-address__item o-forms-group ${error ? 'o-forms--error' : ''}`}>
-					<input type="email" className="o-forms-text email-address__input" value={address}
-							onChange={event => onItemChange(index, event.target.value)}></input>
+					<div className="email-address__input-button">
+						<input type="email" className="o-forms-text email-address__input" value={address}
+								onChange={event => onItemChange(index, event.target.value)}></input>
+						{button}
+					</div>
 					{error}
-					{button}
 				</div>
 		)
 	})
