@@ -24,7 +24,7 @@ export default ({ isGift, onIsGiftChange, credit }) => (
 		<div className="gift-or-not__option">
 			<input type="radio" onChange={() => onIsGiftChange(true)} checked={isGift} disabled={credit === 0}
 						 id="gift-or-not__option--gift" className="o-forms-radio" />
-			<label htmlFor="gift-or-not__option--gift" className="o-forms-label">
+			<label htmlFor="gift-or-not__option--gift" className="gift-or-not__label o-forms-label">
 				<div className="gift-or-not__option-icon gift-or-not__option-icon--gift"></div>
 				{giftLabelText(credit)}
 			</label>
@@ -32,7 +32,7 @@ export default ({ isGift, onIsGiftChange, credit }) => (
 		<div className="gift-or-not__option">
 			<input type="radio" onChange={() => onIsGiftChange(false)} checked={!isGift}
 						 id="gift-or-not__option--non-gift" className="o-forms-radio" />
-			<label htmlFor="gift-or-not__option--non-gift" className="o-forms-label">
+			<label htmlFor="gift-or-not__option--non-gift" className="gift-or-not__label o-forms-label">
 				<div className="gift-or-not__option-icon gift-or-not__option-icon--non-gift"></div>
 				<div className="gift-or-not__option-text">
 					Send as a non-gift article that can be read by subscribers only

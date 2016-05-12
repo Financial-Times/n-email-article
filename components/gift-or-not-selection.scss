@@ -20,6 +20,10 @@ $o-forms-is-silent: false;
 		}
 	}
 
+	.gift-or-not__label.o-forms-label {
+		margin-right: 0; // overrides o-forms
+	}
+
 	.gift-or-not__option-text {
 		position: relative;
 		padding-left: 35px;
