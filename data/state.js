@@ -21,10 +21,8 @@ function track (state, action) {
 			detail: {
 				category: 'email-article',
 				action: action.type,
-				context: {
-					fullAction: action,
-					state: anonymousState
-				}
+				fullAction: action,
+				state: anonymousState
 			},
 			bubbles: true
 		}))
