@@ -2,6 +2,10 @@ import { actions as constants } from './constants'
 
 import nNotification from 'n-notification'
 
+function hideKeyboard () {
+	return () => { document.activeElement.blur() }
+}
+
 function validateEmail (email) {
 	// return true if invalid
 	return email !== '' && !email.match(/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i)
@@ -15,11 +19,17 @@ export default class {
 	}
 	
 	notifySuccess (title, content) {
-		return () => { nNotification.show({ title: title, content: content, type: 'success' })}
+		return () => {
+			hideKeyboard()
+			nNotification.show({ title: title, content: content, type: 'success' })
+		}
 	}
 
 	notifyError (title, content) {
-		return () => { nNotification.show({ title: title, content: content, type: 'error' })}
+		return () => {
+			hideKeyboard()
+			nNotification.show({ title: title, content: content, type: 'error' })
+		}
 	}
 
 	modeChange (mode) {

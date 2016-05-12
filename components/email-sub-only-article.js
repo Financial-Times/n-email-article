@@ -7,7 +7,7 @@ export default ({ isReady, isOpen,
 		onSend, isSending, onClose }) => (
 	<div className={`email-article email-article--${isReady && isOpen ? 'open' : 'closed'}`}>
 		<button onClick={onClose} type="button" className="o-buttons o-buttons--medium email-article__close"><i>Close</i></button>
-		<form noValidate onSubmit={(e) => { document.activeElement.blur(); e.preventDefault(); onSend() }} className="email-article__container">
+		<form noValidate onSubmit={(e) => { e.preventDefault(); onSend() }} className="email-article__container">
 			<h1 className="email-article__title">Email this subscriber-only article</h1>
 			<EmailAddressList
 					items={emailAddresses}
