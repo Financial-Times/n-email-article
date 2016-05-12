@@ -120,7 +120,7 @@ export default class extends React.Component {
 
 		const modes = (
 			<div>
-				<h3>Mode</h3>
+				<h3>Article type</h3>
 				{modeOptions}
 			</div>
 		)
