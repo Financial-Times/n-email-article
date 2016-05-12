@@ -11,9 +11,26 @@ const defaultState = {
 	isSending: false
 }
 
+function track (state, action) {
+	// track some actions
+	if (action.type.indexOf('redux') === -1 && action.type !== actions.EMAIL_ADDRESS_CHANGE) {
+		// remove email addresses
+		const anonymousEmails = state.emailAddresses.map(email => email === '' ? '<blank>' : '<populated>')
+		const anonymousState = Object.assign({}, state, { emailAddresses: anonymousEmails })
+		document.body.dispatchEvent(new CustomEvent('oTracking.event', {
+			detail: {
+				action: action,
+				state: anonymousState
+			},
+			bubbles: true
+		}))
+	}
+}
+
 export default function reducer (state = defaultState, action) {
+	track(state, action)
 	switch (action.type) {
-		case actions.MODE_CHANGE:
+		case actions.MODE_SET:
 				return Object.assign({}, state, {
 					mode: action.mode,
 					isReady: action.mode !== modes.GIFT_OR_SUB, // need to get credit info

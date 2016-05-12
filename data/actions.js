@@ -23,7 +23,7 @@ export default class {
 	}
 
 	modeChange (mode) {
-		return { type: constants.MODE_CHANGE, mode: mode }
+		return { type: constants.MODE_SET, mode: mode }
 	}
 
 	toggleOpenTop () {
