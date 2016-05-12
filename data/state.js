@@ -27,7 +27,7 @@ function track (state, action) {
 export default function reducer (state = defaultState, action) {
 	track(state, action)
 	switch (action.type) {
-		case actions.MODE_CHANGE:
+		case actions.MODE_SET:
 				return Object.assign({}, state, {
 					mode: action.mode,
 					isReady: action.mode !== modes.GIFT_OR_SUB, // need to get credit info
