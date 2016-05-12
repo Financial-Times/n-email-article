@@ -1,5 +1,9 @@
 import React from 'react';
 
+function isMobile () { 
+	return !!navigator.userAgent.match(/(Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone)/i)
+}
+
 function subNote (isGift, showMaySub) {
 	if (!isGift && showMaySub) return (
 		<div className="email-address__note">
@@ -36,7 +40,7 @@ function inputs (items, errors, onItemChange, onAdd, onRemove, isGift, credit) {
 		return (
 				<div key={index} className={`email-address__item o-forms-group ${error ? 'o-forms--error' : ''}`}>
 					<input type="email" className="o-forms-text email-address__input" value={address}
-							autoFocus={index === 0}
+							autoFocus={!isMobile() && index === 0}
 							onChange={event => onItemChange(index, event.target.value)}></input>
 					{error}
 					{button}
