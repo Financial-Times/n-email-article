@@ -3,7 +3,7 @@ import { actions as constants } from './constants'
 import nNotification from 'n-notification'
 
 function hideKeyboard () {
-	return () => { document.activeElement.blur() }
+	document.activeElement.blur()
 }
 
 function validateEmail (email) {
