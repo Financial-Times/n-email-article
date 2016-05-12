@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const isDevServer = process.argv.find(v => v.indexOf('webpack-dev-server') !== -1)
 
 module.exports = {
-	entry: isDevServer ? ['./demos/non-hot-reload'] : [
+	entry: !isDevServer ? ['./demos/non-hot-reload'] : [
 		'react-hot-loader/patch',
 		'webpack-dev-server/client?http://localhost:8080',
 		'webpack/hot/only-dev-server',
