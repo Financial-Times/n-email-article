@@ -12,6 +12,12 @@ const defaultState = {
 }
 
 export default function reducer (state = defaultState, action) {
+	// TODO: probably should not track certain actions such as EMAIL_ADDRESS_CHANGE
+	// and the actual email addresses... to be discussed
+	document.body.dispatchEvent(new CustomEvent('oTracking.event', {
+		detail: { action: action, state: state },
+		bubbles: true
+	}))
 	switch (action.type) {
 		case actions.MODE_CHANGE:
 				return Object.assign({}, state, {

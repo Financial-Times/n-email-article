@@ -7,7 +7,14 @@
   </head>
   <body>
     <div id="root"></div>
+
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+		<script>
+			// demostrate o-tracking call is being made
+			document.body.addEventListener('oTracking.event', function (e) {
+				console.log(e.type, JSON.stringify(e.detail));
+			});
+		</script>
     <script src="bundle.js"></script>
   </body>
 </html>
