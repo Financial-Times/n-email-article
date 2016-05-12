@@ -19,8 +19,12 @@ function track (state, action) {
 		const anonymousState = Object.assign({}, state, { emailAddresses: anonymousEmails })
 		document.body.dispatchEvent(new CustomEvent('oTracking.event', {
 			detail: {
-				action: action,
-				state: anonymousState
+				category: 'email-article',
+				action: action.type,
+				context: {
+					fullAction: action,
+					state: anonymousState
+				}
 			},
 			bubbles: true
 		}))
