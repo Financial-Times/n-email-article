@@ -5,7 +5,7 @@ function giftLabelText (credit, monthlyAllowance) {
 			<div className="gift-or-not__option-text">
 				<div>Send as a gift article that can be read by anyone</div>
 				<div className="gift-or-not__gift-note">
-					You can send <span className="gift-or-not__gift-count">{credit} gift articles</span> this month
+					You can send <span className="gift-or-not__gift-count">{credit} gift article{credit !== 1 ? 's' : ''}</span> this month
 				</div>
 			</div>
 	)
