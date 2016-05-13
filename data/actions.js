@@ -39,7 +39,8 @@ export default class {
 	toggleOpenTop () {
 		const actions = this
 		return (dispatch, getState) => {
-			dispatch({ type: constants.TOGGLE_OPEN_TOP })
+			// small delay to render initial CSS to transition from
+			setTimeout(() => dispatch({ type: constants.TOGGLE_OPEN_TOP }), 100)
 			if (!getState().isReady) dispatch(actions.getCreditInfo())
 		}
 	}
@@ -47,7 +48,8 @@ export default class {
 	toggleOpenBottom () {
 		const actions = this
 		return (dispatch, getState) => {
-			dispatch({ type: constants.TOGGLE_OPEN_BOTTOM })
+			// small delay to render initial CSS to transition from
+			setTimeout(() => dispatch({ type: constants.TOGGLE_OPEN_BOTTOM }), 100)
 			if (!getState().isReady) dispatch(actions.getCreditInfo())
 		}
 	}
