@@ -7,7 +7,7 @@ import DemosConfig from './demos-config'
 
 const randomContent = (
 		<div>
-			<p>Hint: Click on the email icon above</p>
+			<p><em>Hint: Click on the email icon above</em></p>
 			<p>Lorem ipsum dolor sit amet, ea nonumy lucilius nam, pri ei tale soluta. Et nibh minimum duo, mea ad omnis feugait argumentum, doming deseruisse est at. Duo volumus detracto ne. Nam consul albucius sapientem id, decore prodesset consequuntur est ne. Ex dicit eirmod vituperata vel.</p>
 		</div>
 )

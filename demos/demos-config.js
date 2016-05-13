@@ -166,6 +166,7 @@ export default class extends React.Component {
 		return (
 				<div>
 					<h2 className="demos__config-title">Configure demo</h2>
+					<p><em>See in JS console for all the tracking that happens</em></p>
 					{modes}
 					{credit}
 					{responseTime}
