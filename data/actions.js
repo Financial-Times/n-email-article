@@ -117,7 +117,7 @@ export default class {
 						let message = `This article has been sent to ${count} recipient${count !== 1 ? 's' : ''}`
 						if (state.isGift) {
 							const remainder = state.credit - count
-							message += `. You can send ${remainder} more gift articles this month`
+							message += `. You can send ${remainder} more gift article${remainder !== 1 ? 's' : ''} this month`
 						}
 						dispatch(actions.notifySuccess('Sent.', message))
 					})

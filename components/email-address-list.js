@@ -9,12 +9,15 @@ function subNote (isGift, showMaySub) {
 }
 
 function giftNote (items, isGift, credit) {
-	if (isGift) return (
-		<div className="email-address__note">
-			You will have <span className="email-address__gift-count">{credit - items.length} gift articles</span> remaining
-			this month
-		</div>
-	)
+	if (isGift) {
+		const remainder = credit - items.length
+		return (
+			<div className="email-address__note">
+				You will have <span className="email-address__gift-count">{remainder} gift article{remainder !== 1 ? 's' : ''}</span> remaining
+				this month
+			</div>
+		)
+	}
 }
 
 function inputs (items, errors, onItemChange, onAdd, onRemove, isGift, credit) {
