@@ -66,7 +66,7 @@ export default class {
 	}
 
 	handleCreditInfoResponse (json) {
-		return { type: constants.GET_CREDIT_INFO_SUCCESS, credit: json.credits.remainingCredits }
+		return { type: constants.GET_CREDIT_INFO_SUCCESS, monthlyAllowance: json.credits.allowance, credit: json.credits.remainingCredits }
 	}
 
 	isGiftChange (isGift) {

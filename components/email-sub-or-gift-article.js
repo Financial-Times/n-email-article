@@ -3,7 +3,7 @@ import React from 'react';
 import GiftOrNotSelection from './gift-or-not-selection';
 import EmailAddressList from './email-address-list';
 
-export default ({ isReady, isOpen, isGift, onIsGiftChange, credit,
+export default ({ isReady, isOpen, isGift, onIsGiftChange, credit, monthlyAllowance,
 		emailAddresses, emailAddressErrors, onEmailAddressChange, onAddEmailAddress, onRemoveEmailAddress,
 		onSend, isSending, onClose }) => (
 	<div className={`email-article email-article--${isReady && isOpen ? 'open' : 'closed'}`}>
@@ -15,6 +15,7 @@ export default ({ isReady, isOpen, isGift, onIsGiftChange, credit,
 						isGift={isGift}
 						onIsGiftChange={onIsGiftChange}
 						credit={credit}
+						monthlyAllowance={monthlyAllowance}
 				/>
 				<div className="email-article__section-break"></div>
 				<EmailAddressList
