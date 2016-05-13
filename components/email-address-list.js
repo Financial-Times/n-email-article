@@ -21,7 +21,7 @@ function giftNote (items, isGift, credit) {
 }
 
 function inputs (items, errors, onItemChange, onAdd, onRemove, isGift, credit) {
-	const maxItems = isGift ? credit : 10
+	const maxItems = Math.min(isGift ? credit : 10, 4)
 	return items.map((address, index) => {
 		const error = !errors[index] ? null : (
 			<div className="email-address__error o-forms-errortext">Please enter a valid email</div>
