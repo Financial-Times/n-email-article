@@ -3,6 +3,7 @@ $o-buttons-is-silent: false;
 
 @import "./gift-or-not-selection";
 @import "./email-address-list";
+@import "./footnote";
 
 .email-article {
 
@@ -60,8 +61,4 @@ $o-buttons-is-silent: false;
 		font-size: 16px;
 	}
 
-	.email-article__footnote {
-		color: #262626;
-		font-size: 13px;
-	}
 }
