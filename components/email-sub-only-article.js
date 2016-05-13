@@ -1,6 +1,7 @@
 import React from 'react';
 
 import EmailAddressList from './email-address-list';
+import Footnote from './footnote';
 
 export default ({ isReady, isOpen,
 		emailAddresses, emailAddressErrors, onEmailAddressChange, onAddEmailAddress, onRemoveEmailAddress,
@@ -19,9 +20,7 @@ export default ({ isReady, isOpen,
 						showMaySub={true}
 				/>
 				<button type="submit" disabled={isSending} className="email-article__submit o-buttons o-buttons--standout o-buttons--big">Send article</button>
-				<div className="email-article__footnote">
-					This email will show up in their inbox from the Financial Times
-				</div>
+				<Footnote />
 			</form>
 		</div>
 	</div>

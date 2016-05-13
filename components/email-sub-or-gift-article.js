@@ -2,6 +2,7 @@ import React from 'react';
 
 import GiftOrNotSelection from './gift-or-not-selection';
 import EmailAddressList from './email-address-list';
+import Footnote from './footnote';
 
 export default ({ isReady, isOpen, isGift, onIsGiftChange, credit, monthlyAllowance,
 		emailAddresses, emailAddressErrors, onEmailAddressChange, onAddEmailAddress, onRemoveEmailAddress,
@@ -29,9 +30,7 @@ export default ({ isReady, isOpen, isGift, onIsGiftChange, credit, monthlyAllowa
 						showMaySub={true}
 				/>
 				<button type="submit" disabled={isSending} className="email-article__submit o-buttons o-buttons--standout o-buttons--big">Send article</button>
-				<div className="email-article__footnote">
-					This email will show up in their inbox from the Financial Times
-				</div>
+				<Footnote />
 			</form>
 		</div>
 	</div>
