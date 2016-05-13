@@ -34,6 +34,7 @@ export default class extends React.Component {
 		// set defaults
 		state.mode = Object.keys(modeConstants)[0]
 		state.credit = 10
+		state.monthlyAllowance = 10
 		state.responseTime = 0
 		Object.keys(apiConstants).forEach(api => {
 			state[api] = Object.keys(responseConstants)[0]
@@ -43,12 +44,12 @@ export default class extends React.Component {
 		this.update()
 	}
 
-	getResponse (api, responseType, credit, responseTime) {
+	getResponse (api, responseType, credit, monthlyAllowance, responseTime) {
 		let json
 		switch (responseConstants[responseType]) {
 			case responseConstants.GOOD_RESPONSE:
 					if (apiConstants[api] === apiConstants.CREDIT_INFO)
-							json = { credits: { remainingCredits: credit }}
+							json = { credits: { allowance: monthlyAllowance, remainingCredits: credit }}
 					else
 							json = {results: [{recipient: 'test-forward@ftqa.org', success: true, message: 'ok'}]}
 					return () => new Promise((resolve) => setTimeout(() => resolve({json: () => json}), responseTime))
@@ -66,7 +67,7 @@ export default class extends React.Component {
 	createMockApis () {
 		const apiResponses = {}
 		Object.keys(apiConstants).forEach(api => {
-			apiResponses[apiConstantToFunctionNames[api]] = this.getResponse(api, this.state[api], this.state.credit, this.state.responseTime)
+			apiResponses[apiConstantToFunctionNames[api]] = this.getResponse(api, this.state[api], this.state.credit, this.state.monthlyAllowance, this.state.responseTime)
 		})
 		return apiResponses
 	}
@@ -81,6 +82,12 @@ export default class extends React.Component {
 
 	onCreditChange (credit) {
 		this.setState({credit: credit}, () => {
+			this.update()
+		})
+	}
+
+	onMonthlyAllowanceChange (allowance) {
+		this.setState({monthlyAllowance: allowance}, () => {
 			this.update()
 		})
 	}
@@ -155,6 +162,14 @@ export default class extends React.Component {
 				</div>
 		)
 
+		const monthlyAllowance = (
+				<div className="o-forms-group">
+					<label htmlFor="demos__allowance" className="o-forms-label">Monthly credit allowance</label>
+					<input type="number" className="o-forms-text" id="demos__allowance"
+								 value={this.state.monthlyAllowance} onChange={(event) => this.onMonthlyAllowanceChange(parseInt(event.target.value, 10))}></input>
+				</div>
+		)
+
 		const responseTime = (
 				<div className="o-forms-group">
 					<label htmlFor="demos__response-time" className="o-forms-label">Response time (ms)</label>
@@ -169,6 +184,7 @@ export default class extends React.Component {
 					<p><em>See in JS console for all the tracking that happens</em></p>
 					{modes}
 					{credit}
+					{monthlyAllowance}
 					{responseTime}
  					{apiResponses}
 				</div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function giftLabelText (credit) {
+function giftLabelText (credit, monthlyAllowance) {
 	if (credit > 0) return (
 			<div className="gift-or-not__option-text">
 				<div>Send as a gift article that can be read by anyone</div>
@@ -13,20 +13,20 @@ function giftLabelText (credit) {
 			<div className="gift-or-not__option-text">
 				<div className="gift-or-not__gift-note">
 					You can send <span className="gift-or-not__gift-count">0 gift articles</span> this month.
-					You will be able to send 10 more next month
+					You will be able to send {monthlyAllowance} more next month
 				</div>
 			</div>
 	)
 }
 
-export default ({ isGift, onIsGiftChange, credit }) => (
+export default ({ isGift, onIsGiftChange, credit, monthlyAllowance }) => (
 	<div className="gift-or-not">
 		<div className="gift-or-not__option">
 			<input type="radio" onChange={() => onIsGiftChange(true)} checked={isGift} disabled={credit === 0}
 						 id="gift-or-not__option--gift" className="o-forms-radio" />
 			<label htmlFor="gift-or-not__option--gift" className="gift-or-not__label o-forms-label">
 				<div className="gift-or-not__option-icon gift-or-not__option-icon--gift"></div>
-				{giftLabelText(credit)}
+				{giftLabelText(credit, monthlyAllowance)}
 			</label>
 		</div>
 		<div className="gift-or-not__option">

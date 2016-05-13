@@ -30,6 +30,7 @@ export default class extends React.Component {
 							isGift={this.state.isGift}
 							onIsGiftChange={isGift => dispatch(actions.isGiftChange(isGift))}
 							credit={this.state.credit}
+							monthlyAllowance={this.state.monthlyAllowance}
 							emailAddresses={this.state.emailAddresses}
 							emailAddressErrors={this.state.emailAddressErrors}
 							onEmailAddressChange={(index, value) => dispatch(actions.emailAddressChange(index, value))}

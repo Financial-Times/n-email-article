@@ -5,6 +5,7 @@ const defaultState = {
 	isOpenTop: false,
 	isOpenBottom: false,
 	credit: 0,
+	monthlyAllowance: 0,
 	isGift: false,
 	emailAddresses: [''],
 	emailAddressErrors: [false],
@@ -55,7 +56,7 @@ export default function reducer (state = defaultState, action) {
 				return state
 
 		case actions.GET_CREDIT_INFO_SUCCESS:
-				return Object.assign({}, state, { credit: action.credit, isGift: action.credit > 0, emailAddresses: [''], isReady: true })
+				return Object.assign({}, state, { credit: action.credit, monthlyAllowance: action.monthlyAllowance, isGift: action.credit > 0, emailAddresses: [''], isReady: true })
 
 		case actions.IS_GIFT_CHANGE:
 					if (action.isGift && state.emailAddresses.length > state.credit)
