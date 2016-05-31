@@ -4,6 +4,7 @@
     "n-ui": "^1.0.0"
   },
   "resolutions": {
-    "o-ft-icons": "next"
+    "o-ft-icons": "next",
+    "o-grid": "rhys/push-off"
   }
 }
