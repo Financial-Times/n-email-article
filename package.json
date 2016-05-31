@@ -1,5 +1,6 @@
 {
   "name": "@financial-times/n-email-article",
+  "version": "0.0.0",
   "description": "Sharing paywalled articles with others through email",
   "repository": {
     "type": "git",
