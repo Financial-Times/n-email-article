@@ -45,11 +45,11 @@ $o-forms-is-silent: false;
 			}
 
 			.email-address__button--add {
-				@include nextIcon(plus, #666666, 16);
+				@include oIconsGetIcon('plus', #666666, 16);
 			}
 
 			.email-address__button--remove {
-				@include nextIcon(minus, #666666, 16);
+				@include oIconsGetIcon('minus', #666666, 16);
 			}
 		}
 	}

@@ -1,10 +1,11 @@
 {
   "name": "n-email-article",
   "dependencies": {
-    "n-ui": "^1.0.0"
+    "n-ui": "^1.0.0",
+    "o-icons": "^4.1.2"
   },
   "resolutions": {
-    "o-ft-icons": "next",
-    "o-grid": "rhys/push-off"
+    "o-grid": "rhys/push-off",
+    "o-ft-icons": "next"
   }
 }
