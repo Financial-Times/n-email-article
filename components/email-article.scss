@@ -31,7 +31,7 @@
 		padding: 0;
 
 		i {
-			@include nextIcon(cross, #333333, 12);
+			@include oIconsGetIcon('cross', #333333, 12);
 			text-indent: 100%;
 			overflow: hidden;
 		}
