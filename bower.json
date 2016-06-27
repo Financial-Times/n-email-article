@@ -3,5 +3,8 @@
   "dependencies": {
     "n-ui": "^2.0.0",
     "o-icons": "^4.1.2"
+  },
+  "resolutions": {
+    "n-ui": "^2.0.0"
   }
 }
