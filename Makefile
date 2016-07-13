@@ -1,5 +1,8 @@
 export PATH := ./node_modules/.bin:$(PATH)
 
+clean:
+	rm -rf bower_components node_modules
+
 install:
 	@npm install
 
