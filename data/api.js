@@ -15,11 +15,11 @@ function post (url, emailAddresses, articleId) {
 export default class {
 
 	creditInfo () {
-		return fetch('/rtcl-email/actions/credits', { credentials: 'same-origin' })
+		return fetch('/article-email/credits', { credentials: 'same-origin' })
 	}
 
 	gift (emailAddresses, articleId) {
-		return post('/rtcl-email/actions/gift', emailAddresses, articleId)
+		return post('/article-email/gift', emailAddresses, articleId)
 	}
 
 	nonGift (emailAddresses, articleId) {
