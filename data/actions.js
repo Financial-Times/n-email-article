@@ -40,8 +40,12 @@ export default class {
 		const actions = this
 		return (dispatch, getState) => {
 			// small delay to render initial CSS to transition from
-			setTimeout(() => dispatch({ type: constants.TOGGLE_OPEN_TOP }), 100)
-			if (!getState().isReady) dispatch(actions.getCreditInfo())
+			const open = () => setTimeout(() => dispatch({ type: constants.TOGGLE_OPEN_TOP }), 100)
+			if (getState().isReady) {
+				open()
+			} else {
+				dispatch(actions.getCreditInfo(open))
+			}
 		}
 	}
 
@@ -49,18 +53,23 @@ export default class {
 		const actions = this
 		return (dispatch, getState) => {
 			// small delay to render initial CSS to transition from
-			setTimeout(() => dispatch({ type: constants.TOGGLE_OPEN_BOTTOM }), 100)
-			if (!getState().isReady) dispatch(actions.getCreditInfo())
+			const open = () => setTimeout(() => dispatch({ type: constants.TOGGLE_OPEN_BOTTOM }), 100)
+			if (getState().isReady) {
+				open()
+			} else {
+				dispatch(actions.getCreditInfo(open))
+			}
 		}
 	}
 
-	getCreditInfo () {
+	getCreditInfo (postAction) {
 		const actions = this
 		return dispatch => {
 			dispatch({ type: constants.GET_CREDIT_INFO })
 			return actions.api.creditInfo()
 					.then(response => response.json())
 					.then(json => dispatch(actions.handleCreditInfoResponse(json)))
+					.then(() => { if (postAction) postAction() })
 					.catch(() => dispatch(actions.notifyError('Oops.', 'We\'re unable to get gift article credit information. Please try again')))
 		}
 	}
