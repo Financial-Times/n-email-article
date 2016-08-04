@@ -115,7 +115,8 @@ export default class {
 			dispatch({ type: constants.SEND })
 			const articleId = document.querySelector('.article').getAttribute('data-content-id')
 			const fetch = state.isGift ? actions.api.gift : actions.api.nonGift
-			return fetch(state.emailAddresses, articleId)
+			const nonBlankEmailAddresses = state.emailAddresses.filter(a => a !== '')
+			return fetch(nonBlankEmailAddresses, articleId)
 					.then(response => response.json())
 					.then(json => {
 						dispatch(actions.handleSendResponse(json))
