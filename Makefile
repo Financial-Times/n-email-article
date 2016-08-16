@@ -5,8 +5,9 @@ run:
 	@echo Edit the JS or CSS file and you should see the change applied in the browser without any reload
 	@webpack-dev-server --hot --content-base demos --https --port 5050 --host local.ft.com
 
-test:
-	@echo If at first you don't succeed, try, try again. Then quit. There's no point in being a damn fool about it
+test: verify
+	@$(DONE)
 
 gh-pages:
 	@sh ./gh-pages.sh
+	@$(DONE)

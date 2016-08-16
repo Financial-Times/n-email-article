@@ -38,20 +38,21 @@ $o-forms-is-silent: false;
 			padding: 0;
 			margin-left: 12px;
 			border-color: #cec6b9;
-
-			i {
-				text-indent: 100%;
-				overflow: hidden;
-			}
-
-			.email-address__button--add {
-				@include oIconsGetIcon('plus', #666666, 16);
-			}
-
-			.email-address__button--remove {
-				@include oIconsGetIcon('minus', #666666, 16);
-			}
 		}
+
+		i {
+			text-indent: 100%;
+			overflow: hidden;
+		}
+
+		.email-address__button--add {
+			@include oIconsGetIcon('plus', #666666, 16);
+		}
+
+		.email-address__button--remove {
+			@include oIconsGetIcon('minus', #666666, 16);
+		}
+
 	}
 
 	.email-address__note {

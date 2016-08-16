@@ -4,24 +4,24 @@
 
 .email-article {
 
-	background-color: #FDF8F2;
+	background-color: #fdf8f2;
 	color: #333333;
 	font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
 
 	&.email-article--open {
 		max-height: 920px;
-		transition: max-height .5s ease-in;
+		transition: max-height 0.5s ease-in;
 		overflow: hidden;
 	}
 
 	&.email-article--closed {
 		max-height: 0;
-		transition: max-height .5s ease-out;
+		transition: max-height 0.5s ease-out;
 		overflow: hidden;
 	}
 
 	.email-article__border {
-		border: solid 1px #CEC6B9;
+		border: solid 1px #cec6b9;
 	}
 
 	.email-article__close {
@@ -48,7 +48,7 @@
 	}
 
 	.email-article__section-break {
-		border-top: solid 1px #C0B0A4;
+		border-top: solid 1px #c0b0a4;
 	}
 
 	.email-article__submit {

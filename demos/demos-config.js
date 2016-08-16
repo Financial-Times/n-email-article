@@ -116,8 +116,8 @@ export default class extends React.Component {
 			return (
 					<div key={mode} className="o-forms-group">
 						<input type="radio" className="o-forms-radio" id={id}
-									 checked={this.state.mode === mode}
-									 onChange={() => this.onModeChange(mode)}/>
+									checked={this.state.mode === mode}
+									onChange={() => this.onModeChange(mode)}/>
 						<label className="o-forms-label" htmlFor={id}>
 							{modeToLabels[mode]}
 						</label>
@@ -138,8 +138,8 @@ export default class extends React.Component {
 				return (
 						<div key={id} className="o-forms-group">
 							<input type="radio" className="o-forms-radio" id={id}
-										 checked={this.state[api] === response}
-										 onChange={() => this.onApiResponseChange(api, response)}/>
+										checked={this.state[api] === response}
+										onChange={() => this.onApiResponseChange(api, response)}/>
 							<label className="o-forms-label" htmlFor={id}>
 								{responseConstants[response]}
 							</label>
@@ -158,7 +158,7 @@ export default class extends React.Component {
 				<div className="o-forms-group">
 					<label htmlFor="demos__credit" className="o-forms-label">Gift credit</label>
 					<input type="number" className="o-forms-text" id="demos__credit"
-								 value={this.state.credit} onChange={(event) => this.onCreditChange(parseInt(event.target.value, 10))}></input>
+								value={this.state.credit} onChange={(event) => this.onCreditChange(parseInt(event.target.value, 10))}></input>
 				</div>
 		)
 
@@ -166,7 +166,7 @@ export default class extends React.Component {
 				<div className="o-forms-group">
 					<label htmlFor="demos__allowance" className="o-forms-label">Monthly credit allowance</label>
 					<input type="number" className="o-forms-text" id="demos__allowance"
-								 value={this.state.monthlyAllowance} onChange={(event) => this.onMonthlyAllowanceChange(parseInt(event.target.value, 10))}></input>
+								value={this.state.monthlyAllowance} onChange={(event) => this.onMonthlyAllowanceChange(parseInt(event.target.value, 10))}></input>
 				</div>
 		)
 
@@ -174,7 +174,7 @@ export default class extends React.Component {
 				<div className="o-forms-group">
 					<label htmlFor="demos__response-time" className="o-forms-label">Response time (ms)</label>
 					<input type="number" className="o-forms-text" id="demos__response-time"
-								 value={this.state.responseTime} onChange={(event) => this.onResponseTimeChange(parseInt(event.target.value, 10))}></input>
+								value={this.state.responseTime} onChange={(event) => this.onResponseTimeChange(parseInt(event.target.value, 10))}></input>
 				</div>
 		)
 
@@ -186,7 +186,7 @@ export default class extends React.Component {
 					{credit}
 					{monthlyAllowance}
 					{responseTime}
- 					{apiResponses}
+					{apiResponses}
 				</div>
 		)
 
