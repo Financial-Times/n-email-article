@@ -11,7 +11,7 @@ This is the client-side UI.
 CircleCI doesn't push latest to GitHub Pages.  You will need to do it manually using your GitHub credentials:
 
 ```sh
-./gh-pages.sh
+sh gh-pages.sh
 ```
 
 ## Installation
