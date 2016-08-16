@@ -1,10 +1,4 @@
-export PATH := ./node_modules/.bin:$(PATH)
-
-clean:
-	rm -rf bower_components node_modules
-
-install:
-	@npm install
+include n.Makefile
 
 run:
 	@webpack-dev-server --hot --content-base demos
