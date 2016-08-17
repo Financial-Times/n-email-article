@@ -1,12 +1,13 @@
-const expect = require('chai').expect;
+import { expect } from 'chai'
+import Actions from '../../data/actions'
 
-const actions = require('../../data/actions');
+const actions = new Actions({});
 
 describe('data actions', () => {
 
 	it('um', () => {
 		const action = actions.validateThenSend();
-		expect(action).to.be.defined();
+		expect(action).to.be.defined;
 	});
 
 });

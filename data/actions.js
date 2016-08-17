@@ -1,6 +1,6 @@
 import { actions as constants } from './constants'
 
-import nNotification from 'n-ui/notification'
+import notification from '@financial-times/n-ui'
 
 function hideKeyboard () {
 	document.activeElement.blur()
@@ -21,14 +21,14 @@ export default class {
 	notifySuccess (title, content) {
 		return () => {
 			hideKeyboard()
-			nNotification.show({ title: title, content: content, type: 'success' })
+			notification.show({ title: title, content: content, type: 'success' })
 		}
 	}
 
 	notifyError (title, content) {
 		return () => {
 			hideKeyboard()
-			nNotification.show({ title: title, content: content, type: 'error' })
+			notification.show({ title: title, content: content, type: 'error' })
 		}
 	}
 

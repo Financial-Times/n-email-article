@@ -9,7 +9,7 @@ test: verify unit-test
 	@$(DONE)
 
 unit-test:
-	@mocha --require test/setup.js 'test/**/*.spec.js'
+	@mocha --require test/setup 'test/**/*.spec.js'
 	@$(DONE)
 
 gh-pages:
