@@ -1,6 +1,6 @@
 import { actions as constants } from './constants'
 
-import notification from '@financial-times/n-ui'
+import notification from '@financial-times/n-ui/notification'
 
 function hideKeyboard () {
 	document.activeElement.blur()
