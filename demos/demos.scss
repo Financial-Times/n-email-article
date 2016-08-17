@@ -1,9 +1,10 @@
 @import "n-ui/env";
 
-html, body {
+html,
+body {
 	min-width: 100%;
 	min-height: 100%;
-	background-color: #ddd;
+	background-color: #dddddd;
 }
 
 .demos__config,
@@ -12,7 +13,7 @@ html, body {
 	width: 375px;
 	margin: $spacing-unit;
 	padding: $spacing-unit;
-	background-color: #fff;
+	background-color: #ffffff;
 }
 
 .demos__config-title,
@@ -23,7 +24,7 @@ html, body {
 .demos__email {
 	border: 0;
 	padding: 0;
-	margin: 0 0 16px 0;
+	margin: 0 0 16px;
 
 	i {
 		@include oIconsGetIcon('email', #333333, 22);

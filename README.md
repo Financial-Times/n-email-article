@@ -2,11 +2,17 @@
 
 A component to share paywalled articles with others through email, whether they are FT subscribers or not.
 
-This is the client-side UI.  See [next-rtcl-email-api](https://github.com/Financial-Times/next-rtcl-email-api) for the server-side API.
+This is the client-side UI.
 
 ## Demos
 
 [financial-times.github.io/n-email-article](http://financial-times.github.io/n-email-article)
+
+CircleCI doesn't push latest to GitHub Pages.  You will need to do it manually using your GitHub credentials:
+
+```sh
+sh gh-pages.sh
+```
 
 ## Installation
 
@@ -26,8 +32,8 @@ make run
 
 then open in the web browser:
 
-[http://localhost:8080](http://localhost:8080)
+[https://local.ft.com:5050/webpack-dev-server/](https://local.ft.com:5050)
 
 ## Usage
 
-See [demos](./demos) and search for `n-email-article` in [next-article](https://github.com/financial-times/next-article) for actual usage examples.
+See [demos](./demos) and search for `n-email-article` in [next-article](https://github.com/financial-times/next-article) for actual uses in production.

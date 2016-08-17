@@ -12,11 +12,11 @@ $o-forms-is-silent: false;
 		top: 1px;
 
 		&.gift-or-not__option-icon--gift {
-			@include oIconsGetIcon('gift', #C0B0A4, 23);
+			@include oIconsGetIcon('gift', #c0b0a4, 23);
 		}
 
 		&.gift-or-not__option-icon--non-gift {
-			@include oIconsGetIcon('email', #C0B0A4, 23);
+			@include oIconsGetIcon('email', #c0b0a4, 23);
 		}
 	}
 
