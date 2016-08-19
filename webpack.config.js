@@ -14,9 +14,6 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	devtool: 'source-map',
-	resolve: {
-		modulesDirectories: ['bower_components', 'node_modules']
-	},
 	module: {
 		loaders: [
 			{
