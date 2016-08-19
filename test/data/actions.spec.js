@@ -1,13 +1,20 @@
 import { expect } from 'chai'
+import sinon from 'sinon';
 import Actions from '../../data/actions'
 
-const actions = new Actions({});
+const actions = new Actions({})
+
 
 describe('data actions', () => {
 
 	it('um', () => {
-		const action = actions.validateThenSend();
-		expect(action).to.be.defined;
+		const action = actions.validateThenSend()
+		const dispatch = sinon.stub()
+
+		action(dispatch, () => ({ emailAddresses: ['b@b.com', 'b@b'] }))
+
+		const result = dispatch.getCall(0).args.pop()
+		expect(result.results).to.deep.equal([false, true])
 	});
 
 });
