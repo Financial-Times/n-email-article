@@ -11,13 +11,13 @@
     "postinstall": "bower install --config.registry.search=http://registry.origami.ft.com --config.registry.search=https://bower.herokuapp.com"
   },
   "dependencies": {
+    "@financial-times/n-notification": "^5.0.1",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "redux": "^3.5.2",
     "redux-thunk": "^2.0.1"
   },
   "devDependencies": {
-    "@financial-times/n-notification": "^5.0.1",
     "babel-core": "6.7.6",
     "babel-loader": "6.2.4",
     "babel-preset-es2015-node4": "^2.1.0",
