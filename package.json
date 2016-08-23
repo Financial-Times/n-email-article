@@ -32,6 +32,7 @@
     "lintspaces-cli": "^0.4.0",
     "mocha": "^3.0.2",
     "node-sass": "^3.4.2",
+    "npm-prepublish": "^1.2.1",
     "proxyquire": "^1.7.10",
     "raw-loader": "^0.5.1",
     "react-hot-loader": "^3.0.0-alpha.12",
