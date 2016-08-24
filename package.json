@@ -7,9 +7,6 @@
     "url": "git://github.com/Financial-Times/n-email-article.git"
   },
   "license": "MIT",
-  "scripts": {
-    "postinstall": "bower install --config.registry.search=http://registry.origami.ft.com --config.registry.search=https://bower.herokuapp.com"
-  },
   "dependencies": {
     "@financial-times/n-notification": "^5.0.1",
     "react": "^15.0.1",
