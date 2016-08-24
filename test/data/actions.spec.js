@@ -14,7 +14,7 @@ describe('data actions', () => {
 		action(dispatch, () => ({ emailAddresses: ['b@b.com', 'ben@b.fletch', 'b@b', '@b.com', 'b@'] }))
 
 		const result = dispatch.getCall(0).args.pop()
-		expect(result).to.deep.equal({ type: 'VALIDATION_RESULTS', results: [false, false, true, true, true] })
+		expect(result).to.deep.equal({ type: 'VALIDATION_RESULTS', results: [false, false, false, true, true] })
 	})
 
 })

@@ -8,7 +8,7 @@ function hideKeyboard () {
 
 function validateEmail (email) {
 	// return true if invalid
-	return email !== '' && !email.match(/[^@]{1,}@[^@]{1,}\.[^@]{1,}/)
+	return email !== '' && !email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)
 }
 
 export default class {
