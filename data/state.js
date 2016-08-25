@@ -67,6 +67,9 @@ export default function reducer (state = defaultState, action) {
 					else return Object.assign({}, state, { isGift: action.isGift })
 
 		case actions.EMAIL_ADDRESS_CHANGE:
+					// some users comma-separate addresses in a single field
+					// so we split them up into separate fields
+					// and ignore anything over the maximum number allowed
 					const maxItems = state.isGift ? state.credit : 10;
 					const changed = action.value.split(',')
 						// up to the maximum number of email addresses
