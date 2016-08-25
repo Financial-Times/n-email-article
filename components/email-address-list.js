@@ -21,7 +21,7 @@ function giftNote (items, isGift, credit) {
 }
 
 function inputs (items, errors, onItemChange, onAdd, onRemove, isGift, credit) {
-	const maxItems = Math.min(isGift ? credit : 10, 4)
+	const maxItems = isGift ? credit : 10
 	return items.map((address, index) => {
 		const error = !errors[index] ? null : (
 			<div className="email-address__error o-forms-errortext">Please enter a valid email</div>
@@ -39,7 +39,9 @@ function inputs (items, errors, onItemChange, onAdd, onRemove, isGift, credit) {
 		return (
 				<div key={index} className={`email-address__item o-forms-group ${error ? 'o-forms--error' : ''}`}>
 					<div className="email-address__input-button">
-						<input type="email" className="o-forms-text email-address__input" value={address}
+						<input type="email" className="o-forms-text email-address__input"
+								autoFocus={true}
+								value={address}
 								onChange={event => onItemChange(index, event.target.value)}></input>
 						{button}
 					</div>

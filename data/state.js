@@ -67,9 +67,14 @@ export default function reducer (state = defaultState, action) {
 					else return Object.assign({}, state, { isGift: action.isGift })
 
 		case actions.EMAIL_ADDRESS_CHANGE:
-					return Object.assign({}, state, {
-						emailAddresses: state.emailAddresses.map((x, i) => i === action.index ? action.value : x)
-					})
+					const maxItems = state.isGift ? state.credit : 10;
+					const changed = action.value.split(',')
+						// up to the maximum number of email addresses
+						.slice(0, maxItems - state.emailAddresses.length + 1);
+					const all = state.emailAddresses.slice(0, action.index)
+						.concat(changed)
+						.concat(state.emailAddresses.slice(action.index + 1));
+					return Object.assign({}, state, { emailAddresses: all });
 
 		case actions.ADD_EMAIL_ADDRESS:
 					return Object.assign({}, state, {
