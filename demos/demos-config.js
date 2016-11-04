@@ -114,11 +114,11 @@ export default class extends React.Component {
 		const modeOptions = Object.keys(modeConstants).map(mode => {
 			const id = `demos__mode--${mode}`
 			return (
-					<div key={mode} className="o-forms-group">
-						<input type="radio" className="o-forms-radio" id={id}
+					<div key={mode} className="o-forms">
+						<input type="radio" className="o-forms__radio" id={id}
 									checked={this.state.mode === mode}
 									onChange={() => this.onModeChange(mode)}/>
-						<label className="o-forms-label" htmlFor={id}>
+						<label className="o-forms__label" htmlFor={id}>
 							{modeToLabels[mode]}
 						</label>
 					</div>
@@ -136,11 +136,11 @@ export default class extends React.Component {
 			const responses = Object.keys(responseConstants).map(response => {
 				const id = `demos__${api}--${response}`
 				return (
-						<div key={id} className="o-forms-group">
-							<input type="radio" className="o-forms-radio" id={id}
+						<div key={id} className="o-forms">
+							<input type="radio" className="o-forms__radio" id={id}
 										checked={this.state[api] === response}
 										onChange={() => this.onApiResponseChange(api, response)}/>
-							<label className="o-forms-label" htmlFor={id}>
+							<label className="o-forms__label" htmlFor={id}>
 								{responseConstants[response]}
 							</label>
 						</div>
@@ -155,25 +155,25 @@ export default class extends React.Component {
 		})
 
 		const credit = (
-				<div className="o-forms-group">
-					<label htmlFor="demos__credit" className="o-forms-label">Gift credit</label>
-					<input type="number" className="o-forms-text" id="demos__credit"
+				<div className="o-forms">
+					<label htmlFor="demos__credit" className="o-forms__label">Gift credit</label>
+					<input type="number" className="o-forms__text" id="demos__credit"
 								value={this.state.credit} onChange={(event) => this.onCreditChange(parseInt(event.target.value, 10))}></input>
 				</div>
 		)
 
 		const monthlyAllowance = (
-				<div className="o-forms-group">
-					<label htmlFor="demos__allowance" className="o-forms-label">Monthly credit allowance</label>
-					<input type="number" className="o-forms-text" id="demos__allowance"
+				<div className="o-forms">
+					<label htmlFor="demos__allowance" className="o-forms__label">Monthly credit allowance</label>
+					<input type="number" className="o-forms__text" id="demos__allowance"
 								value={this.state.monthlyAllowance} onChange={(event) => this.onMonthlyAllowanceChange(parseInt(event.target.value, 10))}></input>
 				</div>
 		)
 
 		const responseTime = (
-				<div className="o-forms-group">
-					<label htmlFor="demos__response-time" className="o-forms-label">Response time (ms)</label>
-					<input type="number" className="o-forms-text" id="demos__response-time"
+				<div className="o-forms">
+					<label htmlFor="demos__response-time" className="o-forms__label">Response time (ms)</label>
+					<input type="number" className="o-forms__text" id="demos__response-time"
 								value={this.state.responseTime} onChange={(event) => this.onResponseTimeChange(parseInt(event.target.value, 10))}></input>
 				</div>
 		)
