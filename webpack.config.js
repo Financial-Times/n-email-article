@@ -24,18 +24,10 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.jsx?$/,
-				exclude: /node_modules/,
-				loaders: [
-					'babel?' + JSON.stringify({
-						presets: ['es2015', 'react'],
-						plugins: [
-							// the loose: true flag is for old IE support
-							[require.resolve('babel-plugin-transform-es2015-classes'), { loose: true }],
-							require.resolve('babel-plugin-transform-es2015-template-literals')
-						]
-					}),
-					'eslint'
-				]
+				loader: 'babel-loader',
+				query: {
+					presets: ['es2015', 'react']
+				}
 			},
 			{
 				test: /\.scss$/,
