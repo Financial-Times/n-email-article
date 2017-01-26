@@ -1,6 +1,6 @@
 {
   "name": "n-email-article",
   "dependencies": {
-    "n-ui": "^3.0.0"
+    "n-ui": ">=2.0.0 <4.0.0"
   }
 }
