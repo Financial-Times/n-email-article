@@ -18,16 +18,10 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.jsx?$/,
-				loaders: [
-					'babel?' + JSON.stringify({
-						presets: ['es2015', 'react'],
-						plugins: [
-							// the loose: true flag is for old IE support
-							[require.resolve('babel-plugin-transform-es2015-classes'), { loose: true }]
-						]
-					}),
-					'eslint'
-				]
+				loader: 'babel-loader',
+				query: {
+					presets: ['es2015', 'react']
+				}
 			},
 			{
 				test: /\.scss$/,
