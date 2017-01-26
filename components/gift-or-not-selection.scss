@@ -20,7 +20,7 @@ $o-forms-is-silent: false;
 		}
 	}
 
-	.gift-or-not__label.o-forms-label {
+	.gift-or-not__label.o-forms__label {
 		margin-right: 0; // overrides o-forms
 	}
 
@@ -32,7 +32,7 @@ $o-forms-is-silent: false;
 	}
 
 	// the UX would like just the label icon faded out, leaving the label text alone
-	.o-forms-radio:disabled + .o-forms-label {
+	.o-forms__radio:disabled + .o-forms__label {
 		opacity: 1;
 		.gift-or-not__option-icon {
 			opacity: 0.4;

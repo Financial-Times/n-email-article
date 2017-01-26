@@ -24,7 +24,7 @@ function inputs (items, errors, onItemChange, onAdd, onRemove, isGift, credit) {
 	const maxItems = isGift ? credit : 10
 	return items.map((address, index) => {
 		const error = !errors[index] ? null : (
-			<div className="email-address__error o-forms-errortext">Please enter a valid email</div>
+			<div className="email-address__error o-forms__errortext">Please enter a valid email</div>
 		)
 		const action = (maxItems === 1 || index + 1 === items.length && index + 1 < maxItems) ? 'add' : 'remove'
 		const button = (
@@ -37,9 +37,9 @@ function inputs (items, errors, onItemChange, onAdd, onRemove, isGift, credit) {
 				</div>
 		)
 		return (
-				<div key={index} className={`email-address__item o-forms-group ${error ? 'o-forms--error' : ''}`}>
+				<div key={index} className={`email-address__item o-forms ${error ? 'o-forms--error' : ''}`}>
 					<div className="email-address__input-button">
-						<input type="email" className="o-forms-text email-address__input"
+						<input type="email" className="o-forms__text email-address__input"
 								autoFocus={true}
 								value={address}
 								onChange={event => onItemChange(index, event.target.value)}></input>
