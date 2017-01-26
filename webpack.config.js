@@ -10,6 +10,12 @@ module.exports = {
 		'webpack/hot/only-dev-server',
 		'./demos/hot-reload'
 	],
+	resolve: {
+		alias: {
+			react: 'preact-compat',
+			'react-dom': 'preact-compat'
+		}
+	},
 	output: {
 		filename: 'bundle.js'
 	},
@@ -18,6 +24,7 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.jsx?$/,
+				exclude: /node_modules/,
 				loader: 'babel-loader',
 				query: {
 					presets: ['es2015', 'react']
