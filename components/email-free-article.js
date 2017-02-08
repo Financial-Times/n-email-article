@@ -2,6 +2,7 @@ import React from 'react';
 
 import EmailAddressList from './email-address-list';
 import Footnote from './footnote';
+import CustomMessage from './custom-message';
 
 export default ({ isReady, isOpen,
 		emailAddresses, emailAddressErrors, onEmailAddressChange, onAddEmailAddress, onRemoveEmailAddress,

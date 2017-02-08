@@ -19,11 +19,11 @@ export default class {
 		return fetch('/article-email/credits', { credentials: 'same-origin' })
 	}
 
-	gift (emailAddresses, articleId) {
+	gift (emailAddresses, articleId, customMessage) {
 		return post('/article-email/gift', emailAddresses, articleId, customMessage)
 	}
 
-	nonGift (emailAddresses, articleId) {
+	nonGift (emailAddresses, articleId, customMessage) {
 		return post('/article-email/send', emailAddresses, articleId, customMessage)
 	}
 
