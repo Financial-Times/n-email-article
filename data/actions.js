@@ -93,6 +93,10 @@ export default class {
 		return { type: constants.REMOVE_EMAIL_ADDRESS, index: index }
 	}
 
+	messageTextChange (value) {
+		return { type: constants.MESSAGE_TEXT_CHANGE, value: value}
+	}
+
 	validateThenSend () {
 		const actions = this
 		return (dispatch, getState) => {

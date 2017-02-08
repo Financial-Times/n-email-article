@@ -89,6 +89,12 @@ export default function reducer (state = defaultState, action) {
 						emailAddresses: state.emailAddresses.filter((x, i) => i !== action.index)
 					})
 
+		case actions.MESSAGE_TEXT_CHANGE:
+					return Object.assign({}, state, {
+						messageText: action.value,
+						messageLength: action.value.length
+					})
+
 		case actions.VALIDATION_RESULTS:
 				return Object.assign({}, state, {
 						emailAddressErrors: action.results

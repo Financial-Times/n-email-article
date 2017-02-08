@@ -36,6 +36,8 @@ export default class extends React.Component {
 							onEmailAddressChange={(index, value) => dispatch(actions.emailAddressChange(index, value))}
 							onAddEmailAddress={() => dispatch(actions.addEmailAddress())}
 							onRemoveEmailAddress={index => dispatch(actions.removeEmailAddress(index))}
+							onMessageTyping={(value) => dispatch(actions.onMessageTyping(value))}
+							messageLength={this.state.messageLength}
 							onSend={() => dispatch(actions.validateThenSend())}
 							isSending={this.state.isSending}
 							onClose={() => dispatch(this.props.isTop ? actions.closeTop() : actions.closeBottom())}
@@ -51,6 +53,8 @@ export default class extends React.Component {
 							onEmailAddressChange={(index, value) => dispatch(actions.emailAddressChange(index, value))}
 							onAddEmailAddress={() => dispatch(actions.addEmailAddress())}
 							onRemoveEmailAddress={index => dispatch(actions.removeEmailAddress(index))}
+							onMessageTyping={(value) => dispatch(actions.onMessageTyping(value))}
+							messageLength={this.state.messageLength}
 							onSend={() => dispatch(actions.validateThenSend())}
 							isSending={this.state.isSending}
 							onClose={() => dispatch(this.props.isTop ? actions.closeTop() : actions.closeBottom())}
@@ -66,6 +70,8 @@ export default class extends React.Component {
 							onEmailAddressChange={(index, value) => dispatch(actions.emailAddressChange(index, value))}
 							onAddEmailAddress={() => dispatch(actions.addEmailAddress())}
 							onRemoveEmailAddress={index => dispatch(actions.removeEmailAddress(index))}
+							onMessageTyping={(value) => dispatch(actions.onMessageTyping(value))}
+							messageLength={this.state.messageLength}
 							onSend={() => dispatch(actions.validateThenSend())}
 							isSending={this.state.isSending}
 							onClose={() => dispatch(this.props.isTop ? actions.closeTop() : actions.closeBottom())}
