@@ -13,9 +13,14 @@ const defaultState = {
 	isSending: false
 }
 
+const doNotTrackActions = [
+	actions.EMAIL_ADDRESS_CHANGE,
+	actions.MESSAGE_TEXT_CHANGE
+];
+
 function track (state, action) {
 	// track some actions
-	if (action.type.indexOf('redux') === -1 && action.type !== actions.EMAIL_ADDRESS_CHANGE) {
+	if (action.type.indexOf('redux') === -1 && !doNotTrackActions.includes(action.type)) {
 		// remove email addresses
 		const anonymousEmails = state.emailAddresses.map(email => email === '' ? '<blank>' : '<populated>')
 		const anonymousState = Object.assign({}, state, { emailAddresses: anonymousEmails })
