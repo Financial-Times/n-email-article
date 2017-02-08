@@ -9,6 +9,7 @@ const defaultState = {
 	isGift: false,
 	emailAddresses: [''],
 	emailAddressErrors: [false],
+	messageLength: 0,
 	isSending: false
 }
 
@@ -90,6 +91,7 @@ export default function reducer (state = defaultState, action) {
 					})
 
 		case actions.MESSAGE_TEXT_CHANGE:
+					console.log('XXXXXXXX STATE action.value.length ', action.value.length);
 					return Object.assign({}, state, {
 						messageText: action.value,
 						messageLength: action.value.length

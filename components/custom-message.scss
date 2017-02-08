@@ -1,0 +1,26 @@
+$o-forms-is-silent: false;
+@import "n-ui/forms/main";
+@import "n-ui/typography/main";
+
+.email-article__message {
+
+}
+
+.email-article__message--label {
+	font-size: 16px;
+	margin: 32px 0 16px;
+}
+
+.email-article__message--characters {
+	float: right;
+	font-size: 13px;
+}
+
+.email-article__message--characters-limited {
+	color: red;
+}
+
+.email-article__message--textarea {
+	@include oTypographySans(s)
+	min-height: 130px
+}
