@@ -1,6 +1,6 @@
 $o-forms-is-silent: false;
-
 @import "n-ui/forms/main";
+@import "n-ui/typography/main";
 
 .email-address {
 
@@ -21,6 +21,7 @@ $o-forms-is-silent: false;
 	}
 
 	.email-address__input {
+		@include oTypographySans(m);
 		display: table-cell;
 		width: 100%;
 	}
