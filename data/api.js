@@ -1,4 +1,4 @@
-function post (url, emailAddresses, articleId) {
+function post (url, emailAddresses, articleId, customMessage) {
 	return fetch(url, {
 		credentials: 'same-origin',
 		method: 'POST',
@@ -7,7 +7,8 @@ function post (url, emailAddresses, articleId) {
 		},
 		body: JSON.stringify({
 			contentUUID: articleId,
-			recipients: emailAddresses
+			recipients: emailAddresses,
+			customMessage: customMessage
 		})
 	})
 }
@@ -19,11 +20,11 @@ export default class {
 	}
 
 	gift (emailAddresses, articleId) {
-		return post('/article-email/gift', emailAddresses, articleId)
+		return post('/article-email/gift', emailAddresses, articleId, customMessage)
 	}
 
 	nonGift (emailAddresses, articleId) {
-		return post('/article-email/send', emailAddresses, articleId)
+		return post('/article-email/send', emailAddresses, articleId, customMessage)
 	}
 
 }
