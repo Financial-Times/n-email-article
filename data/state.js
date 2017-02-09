@@ -22,8 +22,9 @@ function track (state, action) {
 	// track some actions
 	if (action.type.indexOf('redux') === -1 && !doNotTrackActions.includes(action.type)) {
 		// remove email addresses
-		const anonymousEmails = state.emailAddresses.map(email => email === '' ? '<blank>' : '<populated>')
-		const anonymousState = Object.assign({}, state, { emailAddresses: anonymousEmails })
+		const anonymousEmails = state.emailAddresses.map(email => email === '' ? '<blank>' : '<populated>');
+		const anonymousState = Object.assign({}, state, { emailAddresses: anonymousEmails });
+		delete anonymousState.messageText;
 		document.body.dispatchEvent(new CustomEvent('oTracking.event', {
 			detail: {
 				category: 'email-article',
@@ -32,7 +33,7 @@ function track (state, action) {
 				state: anonymousState
 			},
 			bubbles: true
-		}))
+		}));
 	}
 }
 
