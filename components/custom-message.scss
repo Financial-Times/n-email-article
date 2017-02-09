@@ -2,9 +2,14 @@ $o-forms-is-silent: false;
 @import "n-ui/forms/main";
 @import "n-ui/typography/main";
 
-.email-article__message--label {
-	font-size: 16px;
+.email-article__message {
 	margin: 32px 0 16px;
+}
+
+.email-article__message--label {
+	display:block;
+	font-size: 16px;
+	margin-bottom: 16px;
 }
 
 .email-article__message--characters {

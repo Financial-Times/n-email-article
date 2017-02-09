@@ -7,6 +7,7 @@ $o-forms-is-silent: false;
 	margin: $spacing-unit 0 0;
 
 	.email-address__label {
+		display: block;
 		font-size: 16px;
 		margin-bottom: $spacing-unit;
 	}
@@ -27,6 +28,7 @@ $o-forms-is-silent: false;
 	}
 
 	.email-address__error {
+		@include oTypographySans(m);
 		padding: 5px 0 0;
 	}
 

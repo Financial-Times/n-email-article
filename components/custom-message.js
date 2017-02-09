@@ -16,9 +16,9 @@ function characters (maximum, current) {
 
 export default ({onMessageTyping, messageLength}) => (
 	<div className="email-article__message">
-		<div className="email-article__message--label">{LABEL_TEXT}
+		<label className="email-article__message--label">{LABEL_TEXT}
 			{characters(MAXIMUM_CHARACTERS, messageLength)}
-		</div>
+		</label>
 		<textarea
 			className="o-forms-textarea email-article__message--textarea"
 			type="text"

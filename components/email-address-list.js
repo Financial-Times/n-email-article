@@ -4,10 +4,14 @@ export default class extends React.Component {
 
 	constructor (props) {
 		super(props)
+		this.state.items = this.props.items.length;
 	}
 
 	componentDidUpdate () {
-		this.lastInput.focus();
+		if (this.props.items.length > this.state.items) {
+			this.lastInput.focus();
+			this.state.items = this.props.items.length;
+		}
 	}
 
 	subNote () {
@@ -65,9 +69,9 @@ export default class extends React.Component {
 	render () {
 		return (
 			<div className="email-address">
-				<div className="email-address__label">
+				<label className="email-address__label">
 					Enter recipient’s email address
-				</div>
+				</label>
 				<div className="email-address__list">
 					{this.inputs()}
 				</div>
