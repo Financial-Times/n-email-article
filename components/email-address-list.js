@@ -4,13 +4,24 @@ export default class extends React.Component {
 
 	constructor (props) {
 		super(props)
-		this.state.items = this.props.items.length;
+		this.setState({invokeFocus: true});
+	}
+
+	componentWillReceiveProps (nextProps) {
+		if (nextProps.items.length > this.props.items.length) {
+			this.setState({invokeFocus: true});
+		} else {
+			this.setState({invokeFocus: false});
+		}
+	}
+
+	componentDidMount () {
+		this.lastInput.focus();
 	}
 
 	componentDidUpdate () {
-		if (this.props.items.length > this.state.items) {
+		if (this.state.invokeFocus) {
 			this.lastInput.focus();
-			this.state.items = this.props.items.length;
 		}
 	}
 
