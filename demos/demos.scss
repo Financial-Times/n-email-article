@@ -27,7 +27,7 @@ body {
 	margin: 0 0 16px;
 
 	i {
-		@include oIconsGetIcon('email', #333333, 22);
+		@include oIconsGetIcon('mail', #333333, 22);
 		text-indent: 100%;
 		overflow: hidden;
 	}
