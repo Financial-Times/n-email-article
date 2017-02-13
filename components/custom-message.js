@@ -14,12 +14,14 @@ function characters (maximum, current) {
 	)
 }
 
-export default ({onMessageTyping, messageLength}) => (
-	<div className="email-article__message">
-		<label className="email-article__message--label">{LABEL_TEXT}
+export default ({customMessage, onMessageTyping, messageLength}) => {
+	if (customMessage) {
+		return (
+			<div className="email-article__message">
+			<label className="email-article__message--label">{LABEL_TEXT}
 			{characters(MAXIMUM_CHARACTERS, messageLength)}
-		</label>
-		<textarea
+			</label>
+			<textarea
 			className="o-forms-textarea email-article__message--textarea"
 			type="text"
 			inputMode="latin-prose"
@@ -27,5 +29,7 @@ export default ({onMessageTyping, messageLength}) => (
 			placeholder="Enter your message"
 			rows="7"
 			onChange={event => onMessageTyping(event.target.value)}></textarea>
-	</div>
-)
+			</div>
+		)
+	}
+}

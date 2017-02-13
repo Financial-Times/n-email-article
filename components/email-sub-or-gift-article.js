@@ -7,7 +7,7 @@ import CustomMessage from './custom-message';
 
 export default ({ isReady, isOpen, isGift, onIsGiftChange, credit, monthlyAllowance,
 		emailAddresses, emailAddressErrors, onEmailAddressChange, onAddEmailAddress, onRemoveEmailAddress,
-		onMessageTyping, messageLength, onSend, isSending, onClose }) => (
+		customMessage, onMessageTyping, messageLength, onSend, isSending, onClose }) => (
 	<div className={`email-article email-article--${isReady && isOpen ? 'open' : 'closed'}`}>
 		<div className="email-article__border">
 			<button onClick={onClose} type="button" className="o-buttons o-buttons--medium email-article__close"><i>Close</i></button>
@@ -31,6 +31,7 @@ export default ({ isReady, isOpen, isGift, onIsGiftChange, credit, monthlyAllowa
 						showMaySub={true}
 				/>
 				<CustomMessage
+						customMessage={customMessage}
 						onMessageTyping={onMessageTyping}
 						messageLength={messageLength}
 				/>
