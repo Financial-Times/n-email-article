@@ -119,7 +119,7 @@ export default class {
 			const articleId = document.querySelector('.article').getAttribute('data-content-id')
 			const fetch = state.isGift ? actions.api.gift : actions.api.nonGift
 			const nonBlankEmailAddresses = state.emailAddresses.filter(a => a !== '')
-			const customMessage = state.messageLength ? state.messsageText : false;
+			const customMessage = state.messageLength > 0 ? state.messageText : false;
 			return fetch(nonBlankEmailAddresses, articleId, customMessage)
 					.then(response => response.json())
 					.then(json => {
