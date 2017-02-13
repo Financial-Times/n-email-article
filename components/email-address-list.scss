@@ -1,13 +1,14 @@
 $o-forms-is-silent: false;
-
 @import "n-ui/forms/main";
+@import "n-ui/typography/main";
 
 .email-address {
 
 	margin: $spacing-unit 0 0;
 
 	.email-address__label {
-		font-size: 15px;
+		display: block;
+		font-size: 16px;
 		margin-bottom: $spacing-unit;
 	}
 
@@ -21,11 +22,13 @@ $o-forms-is-silent: false;
 	}
 
 	.email-address__input {
+		@include oTypographySans(m);
 		display: table-cell;
 		width: 100%;
 	}
 
 	.email-address__error {
+		@include oTypographySans(m);
 		padding: 5px 0 0;
 	}
 
@@ -46,18 +49,18 @@ $o-forms-is-silent: false;
 		}
 
 		.email-address__button--add {
-			@include oIconsGetIcon('plus', #666666, 16);
+			@include oIconsGetIcon('plus', #666666, 32);
 		}
 
 		.email-address__button--remove {
-			@include oIconsGetIcon('minus', #666666, 16);
+			@include oIconsGetIcon('minus', #666666, 32);
 		}
 
 	}
 
 	.email-address__note {
 		margin-top: 8px;
-		font-size: 13px;
+		font-size: 14px;
 	}
 
 	.email-address__gift-count {

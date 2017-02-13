@@ -2,10 +2,11 @@ import React from 'react';
 
 import EmailAddressList from './email-address-list';
 import Footnote from './footnote';
+import CustomMessage from './custom-message';
 
 export default ({ isReady, isOpen,
 		emailAddresses, emailAddressErrors, onEmailAddressChange, onAddEmailAddress, onRemoveEmailAddress,
-		onSend, isSending, onClose }) => (
+		customMessage, onMessageTyping, messageLength, onSend, isSending, onClose }) => (
 	<div className={`email-article email-article--${isReady && isOpen ? 'open' : 'closed'}`}>
 		<div className="email-article__border">
 			<button onClick={onClose} type="button" className="o-buttons o-buttons--medium email-article__close"><i>Close</i></button>
@@ -18,6 +19,11 @@ export default ({ isReady, isOpen,
 						onAdd={onAddEmailAddress}
 						onRemove={onRemoveEmailAddress}
 						showMaySub={true}
+				/>
+				<CustomMessage
+						customMessage={customMessage}
+						onMessageTyping={onMessageTyping}
+						messageLength={messageLength}
 				/>
 				<button type="submit" disabled={isSending} className="email-article__submit o-buttons o-buttons--standout o-buttons--big">Send article</button>
 				<Footnote />

@@ -93,6 +93,10 @@ export default class {
 		return { type: constants.REMOVE_EMAIL_ADDRESS, index: index }
 	}
 
+	messageTextChange (value) {
+		return { type: constants.MESSAGE_TEXT_CHANGE, value: value}
+	}
+
 	validateThenSend () {
 		const actions = this
 		return (dispatch, getState) => {
@@ -115,7 +119,8 @@ export default class {
 			const articleId = document.querySelector('.article').getAttribute('data-content-id')
 			const fetch = state.isGift ? actions.api.gift : actions.api.nonGift
 			const nonBlankEmailAddresses = state.emailAddresses.filter(a => a !== '')
-			return fetch(nonBlankEmailAddresses, articleId)
+			const customMessage = state.messageLength ? state.messsageText : false;
+			return fetch(nonBlankEmailAddresses, articleId, customMessage)
 					.then(response => response.json())
 					.then(json => {
 						dispatch(actions.handleSendResponse(json))

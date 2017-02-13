@@ -8,6 +8,11 @@ export const modeToLabels = {
 	FREE: 'Free'
 }
 
+const customMessageToLabels = {
+	true: 'True (on)',
+	false: 'False (off)'
+}
+
 const apiConstants = {
 	CREDIT_INFO: 'Credit info',
 	GIFT: 'Gift',
@@ -33,6 +38,7 @@ export default class extends React.Component {
 		const state = {}
 		// set defaults
 		state.mode = Object.keys(modeConstants)[0]
+		state.customMessage = false
 		state.credit = 10
 		state.monthlyAllowance = 10
 		state.responseTime = 0
@@ -105,8 +111,14 @@ export default class extends React.Component {
 		})
 	}
 
+	onCustomMessageOptionChange (customMessageOption) {
+		this.setState({customMessage: customMessageOption}, () => {
+			this.update();
+		});
+	}
+
 	update () {
-		this.props.onConfigChange(this.state.mode, this.createMockApis())
+		this.props.onConfigChange(this.state.mode, this.createMockApis(), this.state.customMessage)
 	}
 
 	render () {
@@ -129,6 +141,27 @@ export default class extends React.Component {
 			<div>
 				<h3>Article type</h3>
 				{modeOptions}
+			</div>
+		)
+
+		const customMessageOptions = [true, false].map(customMessageOption => {
+			const id = `demos__custom-message--${customMessageOption}`
+			return (
+					<div key={customMessageOption} className="o-forms-group">
+						<input type="radio" className="o-forms-radio" id={id}
+									checked={this.state.customMessage === customMessageOption}
+									onChange={() => this.onCustomMessageOptionChange(customMessageOption)}/>
+						<label className="o-forms-label" htmlFor={id}>
+							{customMessageToLabels[customMessageOption]}
+						</label>
+					</div>
+			)
+		})
+
+		const customMessage = (
+			<div>
+				<h3>Custom Message flag</h3>
+				{customMessageOptions}
 			</div>
 		)
 
@@ -183,6 +216,7 @@ export default class extends React.Component {
 					<h2 className="demos__config-title">Configure demo</h2>
 					<p><em>See in JS console for all the tracking that happens</em></p>
 					{modes}
+					{customMessage}
 					{credit}
 					{monthlyAllowance}
 					{responseTime}

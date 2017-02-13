@@ -9,15 +9,22 @@ const defaultState = {
 	isGift: false,
 	emailAddresses: [''],
 	emailAddressErrors: [false],
+	messageLength: 0,
 	isSending: false
 }
 
+const doNotTrackActions = [
+	actions.EMAIL_ADDRESS_CHANGE,
+	actions.MESSAGE_TEXT_CHANGE
+];
+
 function track (state, action) {
 	// track some actions
-	if (action.type.indexOf('redux') === -1 && action.type !== actions.EMAIL_ADDRESS_CHANGE) {
+	if (action.type.indexOf('redux') === -1 && !doNotTrackActions.includes(action.type)) {
 		// remove email addresses
-		const anonymousEmails = state.emailAddresses.map(email => email === '' ? '<blank>' : '<populated>')
-		const anonymousState = Object.assign({}, state, { emailAddresses: anonymousEmails })
+		const anonymousEmails = state.emailAddresses.map(email => email === '' ? '<blank>' : '<populated>');
+		const anonymousState = Object.assign({}, state, { emailAddresses: anonymousEmails });
+		delete anonymousState.messageText;
 		document.body.dispatchEvent(new CustomEvent('oTracking.event', {
 			detail: {
 				category: 'email-article',
@@ -26,7 +33,7 @@ function track (state, action) {
 				state: anonymousState
 			},
 			bubbles: true
-		}))
+		}));
 	}
 }
 
@@ -87,6 +94,12 @@ export default function reducer (state = defaultState, action) {
 		case actions.REMOVE_EMAIL_ADDRESS:
 					return Object.assign({}, state, {
 						emailAddresses: state.emailAddresses.filter((x, i) => i !== action.index)
+					})
+
+		case actions.MESSAGE_TEXT_CHANGE:
+					return Object.assign({}, state, {
+						messageText: action.value,
+						messageLength: action.value.length
 					})
 
 		case actions.VALIDATION_RESULTS:

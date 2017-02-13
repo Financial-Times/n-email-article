@@ -1,6 +1,7 @@
 @import "./gift-or-not-selection";
 @import "./email-address-list";
 @import "./footnote";
+@import "./custom-message";
 
 .email-article {
 
@@ -31,7 +32,7 @@
 		padding: 0;
 
 		i {
-			@include oIconsGetIcon('cross', #333333, 12);
+			@include oIconsGetIcon('cross', #333333, 32);
 			text-indent: 100%;
 			overflow: hidden;
 		}
