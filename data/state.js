@@ -9,6 +9,7 @@ const defaultState = {
 	isGift: false,
 	emailAddresses: [''],
 	emailAddressErrors: [false],
+	messageText: '',
 	messageLength: 0,
 	isSending: false
 }
@@ -111,7 +112,7 @@ export default function reducer (state = defaultState, action) {
 					return Object.assign({}, state, { isSending: true })
 
 		case actions.SEND_SUCCESS:
-					return Object.assign({}, state, { isSending: false, isOpenTop: false, isOpenBottom: false, isReady: false })
+					return Object.assign({}, state, { isSending: false, isOpenTop: false, isOpenBottom: false, isReady: false, messageText: '' })
 
 		case actions.SEND_FAILURE:
 			return Object.assign({}, state, { isSending: false })

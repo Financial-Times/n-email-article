@@ -37,6 +37,7 @@ export default class extends React.Component {
 							onAddEmailAddress={() => dispatch(actions.addEmailAddress())}
 							onRemoveEmailAddress={index => dispatch(actions.removeEmailAddress(index))}
 							customMessage={this.props.customMessage}
+							messageText={this.state.messageText}
 							onMessageTyping={(value) => dispatch(actions.messageTextChange(value))}
 							messageLength={this.state.messageLength}
 							onSend={() => dispatch(actions.validateThenSend())}
@@ -55,6 +56,7 @@ export default class extends React.Component {
 							onAddEmailAddress={() => dispatch(actions.addEmailAddress())}
 							onRemoveEmailAddress={index => dispatch(actions.removeEmailAddress(index))}
 							customMessage={this.props.customMessage}
+							messageText={this.state.messageText}
 							onMessageTyping={(value) => dispatch(actions.messageTextChange(value))}
 							messageLength={this.state.messageLength}
 							onSend={() => dispatch(actions.validateThenSend())}
@@ -73,6 +75,7 @@ export default class extends React.Component {
 							onAddEmailAddress={() => dispatch(actions.addEmailAddress())}
 							onRemoveEmailAddress={index => dispatch(actions.removeEmailAddress(index))}
 							customMessage={this.props.customMessage}
+							messageText={this.state.messageText}
 							onMessageTyping={(value) => dispatch(actions.messageTextChange(value))}
 							messageLength={this.state.messageLength}
 							onSend={() => dispatch(actions.validateThenSend())}
