@@ -14,7 +14,7 @@ function characters (maximum, current) {
 	)
 }
 
-export default ({customMessage, onMessageTyping, messageLength}) => {
+export default ({customMessage, messageText, onMessageTyping, messageLength}) => {
 	if (customMessage) {
 		return (
 			<div className="email-article__message">
@@ -28,6 +28,7 @@ export default ({customMessage, onMessageTyping, messageLength}) => {
 			maxLength={MAXIMUM_CHARACTERS}
 			placeholder="Enter your message"
 			rows="7"
+			value={messageText}
 			onChange={event => onMessageTyping(event.target.value)}></textarea>
 			</div>
 		)
