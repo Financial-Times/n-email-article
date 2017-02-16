@@ -112,7 +112,7 @@ export default function reducer (state = defaultState, action) {
 					return Object.assign({}, state, { isSending: true })
 
 		case actions.SEND_SUCCESS:
-					return Object.assign({}, state, { isSending: false, isOpenTop: false, isOpenBottom: false, isReady: false, messageText: '' })
+					return Object.assign({}, state, { isSending: false, isOpenTop: false, isOpenBottom: false, isReady: false, messageText: '', messageLength: 0 })
 
 		case actions.SEND_FAILURE:
 			return Object.assign({}, state, { isSending: false })
