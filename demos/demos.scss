@@ -1,5 +1,3 @@
-@import "n-ui/env";
-
 html,
 body {
 	min-width: 100%;
@@ -11,8 +9,8 @@ body {
 .demos__article {
 	float: left;
 	width: 375px;
-	margin: $spacing-unit;
-	padding: $spacing-unit;
+	margin: 16px;
+	padding: 16px;
 	background-color: #ffffff;
 }
 
@@ -22,13 +20,5 @@ body {
 }
 
 .demos__email {
-	border: 0;
-	padding: 0;
 	margin: 0 0 16px;
-
-	i {
-		@include oIconsGetIcon('mail', #333333, 22);
-		text-indent: 100%;
-		overflow: hidden;
-	}
 }
