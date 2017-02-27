@@ -67,12 +67,12 @@ export default class extends React.Component {
 						<h1 className="demos__article-title">Article title</h1>
 						<h2>Top toolbar</h2>
 						<button onClick={() => this.onToggleOpen('top')} type="button"
-										className="o-buttons o-buttons--medium demos__email"><i>Email</i></button>
+										className="o-buttons o-buttons--medium demos__email">Email</button>
 						<div data-n-article-email-container data-n-article-email-top-container></div>
 						{randomContent}
 						<h2>Bottom toolbar</h2>
 						<button onClick={() => this.onToggleOpen('bottom')} type="button"
-										className="o-buttons o-buttons--medium demos__email"><i>Email</i></button>
+										className="o-buttons o-buttons--medium demos__email">Email</button>
 						<div data-n-article-email-container data-n-article-email-bottom-container></div>
 						{randomContent}
 					</div>
