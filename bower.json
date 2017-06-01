@@ -2,7 +2,10 @@
   "name": "n-email-article",
   "dependencies": {
     "n-ui-foundations": "^2.0.0-alpha",
-    "n-notification": "^5.0.5",
+    "n-notification": "^6.0.0-beta",
     "o-forms": "^2.0.5"
+  },
+  "resolutions": {
+    "o-colors": "^4.0.1"
   }
 }
