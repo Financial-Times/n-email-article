@@ -14,7 +14,7 @@
 }
 
 .email-article__message--characters-limited {
-	color: red;
+	color: getColor('crimson');
 }
 
 .email-article__message--textarea {
