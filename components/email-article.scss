@@ -4,9 +4,8 @@
 @import "./custom-message";
 
 .email-article {
-
-	background-color: #fdf8f2;
-	color: #333333;
+	background-color: getColor('white-60');
+	color: getColor('black-80');
 	font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
 
 	&.email-article--open {
@@ -22,7 +21,7 @@
 	}
 
 	.email-article__border {
-		border: solid 1px #cec6b9;
+		border: solid 1px getColor('black-20');
 	}
 
 	.email-article__close {
@@ -32,7 +31,7 @@
 		padding: 0;
 
 		i {
-			@include oIconsGetIcon('cross', #333333, 32);
+			@include oIconsGetIcon('cross', getColor('black-80'), 32);
 			text-indent: 100%;
 			overflow: hidden;
 		}
@@ -49,7 +48,7 @@
 	}
 
 	.email-article__section-break {
-		border-top: solid 1px #c0b0a4;
+		border-top: solid 1px getColor('black-30');
 	}
 
 	.email-article__submit {

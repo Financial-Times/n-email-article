@@ -2,7 +2,7 @@ html,
 body {
 	min-width: 100%;
 	min-height: 100%;
-	background-color: #dddddd;
+	background-color: getColor('paper');
 }
 
 .demos__config,
@@ -11,7 +11,7 @@ body {
 	width: 375px;
 	margin: 16px;
 	padding: 16px;
-	background-color: #ffffff;
+	background-color: getColor('white');
 }
 
 .demos__config-title,
