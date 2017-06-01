@@ -18,8 +18,8 @@
 	color: getColor('crimson');
 }
 
-.email-article__message-textarea {
-	@include oTypographySans(s);
+.email-article__message--textarea {
+	@include oTypographySans($scale: 0);
 	min-height: 130px;
 }
 
