@@ -22,6 +22,7 @@ export default class extends React.Component {
 	render () {
 		const actions = this.props.actions
 		const dispatch = this.props.dispatch
+
 		if (this.state.mode === modes.GIFT_OR_SUB) {
 			return (
 					<EmailSubOrGiftArticle
@@ -37,6 +38,7 @@ export default class extends React.Component {
 							onAddEmailAddress={() => dispatch(actions.addEmailAddress())}
 							onRemoveEmailAddress={index => dispatch(actions.removeEmailAddress(index))}
 							customMessage={this.props.customMessage}
+							image={this.state.imageUrl}
 							messageText={this.state.messageText}
 							onMessageTyping={(value) => dispatch(actions.messageTextChange(value))}
 							messageLength={this.state.messageLength}
@@ -56,6 +58,7 @@ export default class extends React.Component {
 							onAddEmailAddress={() => dispatch(actions.addEmailAddress())}
 							onRemoveEmailAddress={index => dispatch(actions.removeEmailAddress(index))}
 							customMessage={this.props.customMessage}
+							image={this.state.imageUrl}
 							messageText={this.state.messageText}
 							onMessageTyping={(value) => dispatch(actions.messageTextChange(value))}
 							messageLength={this.state.messageLength}
@@ -75,6 +78,7 @@ export default class extends React.Component {
 							onAddEmailAddress={() => dispatch(actions.addEmailAddress())}
 							onRemoveEmailAddress={index => dispatch(actions.removeEmailAddress(index))}
 							customMessage={this.props.customMessage}
+							image={this.state.imageUrl}
 							messageText={this.state.messageText}
 							onMessageTyping={(value) => dispatch(actions.messageTextChange(value))}
 							messageLength={this.state.messageLength}

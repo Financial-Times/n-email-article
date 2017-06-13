@@ -35,6 +35,10 @@ export default class {
 		return { type: constants.MODE_SET, mode: mode }
 	}
 
+	addImageUrl (imageUrl) {
+		return { type: constants.ADD_IMAGE_URL, imageUrl: imageUrl }
+	}
+
 	toggleOpenTop () {
 		const actions = this
 		return (dispatch, getState) => {
@@ -114,13 +118,13 @@ export default class {
 	send () {
 		const actions = this
 		return (dispatch, getState) => {
-			const state = getState()
+			const state = getState();
 			dispatch({ type: constants.SEND })
 			const articleId = document.querySelector('.article').getAttribute('data-content-id')
 			const fetch = state.isGift ? actions.api.gift : actions.api.nonGift
 			const nonBlankEmailAddresses = state.emailAddresses.filter(a => a !== '')
 			const customMessage = state.messageLength > 0 ? state.messageText : null;
-			return fetch(nonBlankEmailAddresses, articleId, customMessage)
+			return fetch(nonBlankEmailAddresses, articleId, customMessage, state.imageUrl)
 					.then(response => response.json())
 					.then(json => {
 						dispatch(actions.handleSendResponse(json))
