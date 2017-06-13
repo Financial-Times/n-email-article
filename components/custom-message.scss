@@ -23,5 +23,16 @@
 }
 
 .email-article__message-image {
-	max-height: 200px;
+	max-width: 200px;
+}
+
+@include oGridRespondTo(M) {
+	.email-article__message-image {
+		width: 30%;
+		float: left;
+	}
+	.email-article__message-image + .email-article__message-textarea {
+		width: 65%;
+		float: right;
+	}
 }

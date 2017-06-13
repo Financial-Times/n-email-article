@@ -14,6 +14,10 @@ function characters (maximum, current) {
 	)
 }
 
+function img (image) {
+	return image ? (<img className="email-article__message-image" src={image} />) : null;
+}
+
 export default ({customMessage, messageText, image, onMessageTyping, messageLength}) => {
 	if (customMessage) {
 		return (
@@ -21,7 +25,7 @@ export default ({customMessage, messageText, image, onMessageTyping, messageLeng
 			<label className="email-article__message-label">{LABEL_TEXT}
 			{characters(MAXIMUM_CHARACTERS, messageLength)}
 			</label>
-			<img className="email-article__message-image" src={image}/>
+			{img(image)}
 			<textarea
 			className="o-forms-textarea email-article__message-textarea"
 			type="text"
