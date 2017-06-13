@@ -10,6 +10,7 @@ const defaultState = {
 	emailAddresses: [''],
 	emailAddressErrors: [false],
 	messageText: '',
+	imageUrl: null,
 	messageLength: 0,
 	isSending: false
 }
@@ -47,6 +48,9 @@ export default function reducer (state = defaultState, action) {
 					isReady: action.mode !== modes.GIFT_OR_SUB, // need to get credit info
 					isGift: action.mode === modes.GIFT_OR_SUB
 				})
+
+		case actions.ADD_IMAGE_URL:
+			return Object.assign({}, state, { imageUrl: action.imageUrl })
 
 		case actions.TOGGLE_OPEN_TOP:
 				return Object.assign({}, state, { isOpenTop: !state.isOpenTop })

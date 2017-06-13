@@ -2,22 +2,26 @@
 	margin: 32px 0 16px;
 }
 
-.email-article__message--label {
+.email-article__message-label {
 	display: block;
 	font-size: 16px;
 	margin-bottom: 16px;
 }
 
-.email-article__message--characters {
+.email-article__message-characters {
 	float: right;
 	font-size: 13px;
 }
 
-.email-article__message--characters-limited {
+.email-article__message-characters--limited {
 	color: red;
 }
 
-.email-article__message--textarea {
+.email-article__message-textarea {
 	@include oTypographySans(s);
 	min-height: 130px;
+}
+
+.email-article__message-image {
+	max-height: 200px;
 }
