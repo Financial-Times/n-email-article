@@ -1,5 +1,6 @@
 .email-article__message {
 	margin: 32px 0 16px;
+	position: relative;
 }
 
 .email-article__message-label {
@@ -24,15 +25,30 @@
 
 .email-article__message-image {
 	max-width: 200px;
+	max-height: 150px;
+	position: absolute;
+	padding: 10px;
+	box-sizing: border-box;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
 }
 
-@include oGridRespondTo(M) {
+.email-article__message-image + .email-article__message-textarea {
+	padding-bottom: 160px;
+}
+
+@include oGridRespondTo(S) {
 	.email-article__message-image {
-		width: 30%;
-		float: left;
+		bottom: auto;
+		left: 0;
+		right: auto;
+		margin: 0;
+
 	}
 	.email-article__message-image + .email-article__message-textarea {
-		width: 65%;
-		float: right;
+		padding-bottom: 0;
+		padding-left: 210px;
 	}
 }
