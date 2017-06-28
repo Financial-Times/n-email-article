@@ -3,6 +3,6 @@
   "dependencies": {
     "n-ui-foundations": "^1.0.1",
     "n-notification": "^5.0.5",
-    "o-forms": "^2.0.5"
+    "o-forms": "^4.0.1"
   }
 }
