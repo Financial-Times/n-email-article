@@ -1,8 +1,8 @@
 {
   "name": "n-email-article",
   "dependencies": {
-    "n-ui-foundations": "^1.0.1",
-    "n-notification": "^5.0.5",
+    "n-ui-foundations": "^2.0.0-beta",
+    "n-notification": "^6.0.0-beta",
     "o-forms": "^4.0.1"
   }
 }

@@ -19,7 +19,7 @@
 }
 
 .email-article__message-textarea {
-	@include oTypographySans(s);
+	@include oTypographySans(-2);
 	min-height: 130px;
 }
 
