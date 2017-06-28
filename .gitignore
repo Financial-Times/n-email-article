@@ -1,8 +1,0 @@
-.eslintrc.js
-.editorconfig
-.scss-lint.yml
-
-/npm-debug.log
-
-/bower_components/
-/node_modules/
