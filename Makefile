@@ -1,4 +1,8 @@
-include n.Makefile
+node_modules/@financial-times/n-gage/index.mk:
+	npm install --no-save --no-package-lock @financial-times/n-gage
+	touch $@
+
+-include node_modules/@financial-times/n-gage/index.mk
 
 run:
 	@echo Protip: This uses the hot reloading feature with Webpack and React
@@ -11,6 +15,10 @@ test: verify unit-test
 unit-test:
 	@mocha --require test/setup 'test/**/*.spec.js'
 	@$(DONE)
+
+a11y:
+
+demo: run
 
 gh-pages:
 	@sh ./gh-pages.sh
