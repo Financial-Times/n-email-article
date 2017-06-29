@@ -12,6 +12,8 @@ unit-test:
 	@mocha --require test/setup 'test/**/*.spec.js'
 	@$(DONE)
 
+ally:
+
 gh-pages:
 	@sh ./gh-pages.sh
 	@$(DONE)
