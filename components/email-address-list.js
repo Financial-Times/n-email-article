@@ -49,13 +49,13 @@ export default class extends React.Component {
 		const maxItems = this.props.isGift ? this.props.credit : 10
 		return this.props.items.map((address, index) => {
 			const error = !this.props.errors[index] ? null : (
-				<div className="email-address__error o-forms-errortext">Please enter a valid email</div>
+				<div className="o-forms__errortext">Please enter a valid email</div>
 			)
 			const lastInput = index + 1 === this.props.items.length;
 			const action = (maxItems === 1 || lastInput && index + 1 < maxItems) ? 'add' : 'remove'
 			const button = (
-					<div className="email-address__button">
-						<button type="button" className="o-buttons o-buttons--big"
+					<div className="email-address__button o-forms__suffix">
+						<button type="button" className="o-buttons o-buttons--mono"
 										onClick={() => action === 'add' ? this.props.onAdd() : this.props.onRemove(index)}
 										disabled={maxItems === 1}>
 							<i className={`email-address__button--${action}`}>{action}</i>
@@ -63,9 +63,9 @@ export default class extends React.Component {
 					</div>
 			)
 			return (
-					<div key={index} className={`email-address__item o-forms-group ${error ? 'o-forms--error' : ''}`}>
-						<div className="email-address__input-button">
-							<input type="email" className="o-forms-text email-address__input"
+					<div key={index} className={`email-address__item o-forms--wide ${error ? 'o-forms--error' : ''}`}>
+						<div className="email-address__input-button o-forms__affix-wrapper">
+							<input type="email" className="o-forms__text"
 									ref={(input) => { lastInput ? this.lastInput = input : null; }}
 									value={address}
 									onChange={event => this.props.onItemChange(index, event.target.value)}></input>

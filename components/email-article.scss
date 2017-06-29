@@ -28,10 +28,11 @@
 		float: right;
 		margin: 8px 8px 0 0;
 		border: 0;
+		min-width: 32px;
 		padding: 0;
 
 		i {
-			@include oIconsGetIcon('cross', getColor('black-80'), 32);
+			@include oIconsGetIcon('cross', getColor('black-80'), 32, $iconset-version: 1);
 			text-indent: 100%;
 			overflow: hidden;
 		}
@@ -53,7 +54,7 @@
 
 	.email-article__submit {
 		width: 100%;
-		margin: ($spacing-unit * 1.5) 0 $spacing-unit;
+		margin: 0 0 $spacing-unit;
 		text-transform: none;
 		font-size: 16px;
 	}

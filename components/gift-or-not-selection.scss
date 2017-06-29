@@ -1,19 +1,17 @@
 .gift-or-not {
 
-	.gift-or-not__option {
-		margin: $spacing-unit 0;
-	}
+	margin-bottom: $spacing-unit;
 
 	.gift-or-not__option-icon {
 		position: absolute;
 		top: 1px;
 
 		&.gift-or-not__option-icon--gift {
-			@include oIconsGetIcon('gift', #c0b0a4, 23);
+			@include oIconsGetIcon('gift', #c0b0a4, 23, $iconset-version: 1);
 		}
 
 		&.gift-or-not__option-icon--non-gift {
-			@include oIconsGetIcon('mail', #c0b0a4, 23);
+			@include oIconsGetIcon('mail', #c0b0a4, 23, $iconset-version: 1);
 		}
 	}
 

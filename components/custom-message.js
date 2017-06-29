@@ -21,13 +21,13 @@ function img (image) {
 export default ({customMessage, messageText, image, onMessageTyping, messageLength}) => {
 	if (customMessage) {
 		return (
-			<div className="email-article__message">
-			<label className="email-article__message-label">{LABEL_TEXT}
+			<div className="email-article__message o-forms--wide">
+			<label className="email-article__message--label o-forms__label">{LABEL_TEXT}
 			{characters(MAXIMUM_CHARACTERS, messageLength)}
 			</label>
 			{img(image)}
 			<textarea
-			className="o-forms-textarea email-article__message-textarea"
+			className="o-forms__textarea email-article__message--textarea"
 			type="text"
 			inputMode="latin-prose"
 			maxLength={MAXIMUM_CHARACTERS}
