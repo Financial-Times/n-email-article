@@ -18,25 +18,14 @@
 	}
 
 	.email-address__input {
-		@include oTypographySans(m);
+		@include oTypographySans($scale: 0);
 		display: table-cell;
 		width: 100%;
 	}
 
-	.email-address__error {
-		@include oTypographySans(m);
-		padding: 5px 0 0;
-	}
-
 	.email-address__button {
-		display: table-cell;
-		vertical-align: top;
-		width: 1%;
-
 		button {
-			padding: 0;
-			margin-left: 12px;
-			border-color: #cec6b9;
+			padding: 2px 0;
 		}
 
 		i {
@@ -45,11 +34,11 @@
 		}
 
 		.email-address__button--add {
-			@include oIconsGetIcon('plus', #666666, 32);
+			@include oIconsGetIcon('plus', #666666, 32, $iconset-version: 1);
 		}
 
 		.email-address__button--remove {
-			@include oIconsGetIcon('minus', #666666, 32);
+			@include oIconsGetIcon('minus', #666666, 32, $iconset-version: 1);
 		}
 
 	}

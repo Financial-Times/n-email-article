@@ -6,7 +6,6 @@
 .email-article__message-label {
 	display: block;
 	font-size: 16px;
-	margin-bottom: 16px;
 }
 
 .email-article__message-characters {
@@ -15,11 +14,11 @@
 }
 
 .email-article__message-characters--limited {
-	color: red;
+	color: getColor('crimson');
 }
 
-.email-article__message-textarea {
-	@include oTypographySans(s);
+.email-article__message--textarea {
+	@include oTypographySans($scale: 0);
 	min-height: 130px;
 }
 
