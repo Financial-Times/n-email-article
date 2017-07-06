@@ -11,7 +11,7 @@ export default ({ isReady, isOpen,
 		<div className="email-article__border">
 			<button onClick={onClose} type="button" className="o-buttons o-buttons--mono email-article__close"><i>Close</i></button>
 			<form noValidate onSubmit={(e) => { e.preventDefault(); onSend() }} className="email-article__container">
-				<h1 className="email-article__title">Email this subscriber-only article</h1>
+				<h1 className="email-article__title">{`${image ? 'Email this graphic and a link to this article' :  'Email this subscriber-only article'}`}</h1>
 				<EmailAddressList
 						items={emailAddresses}
 						errors={emailAddressErrors}
