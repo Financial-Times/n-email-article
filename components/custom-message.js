@@ -1,6 +1,5 @@
 import React from 'react';
 
-const LABEL_TEXT = 'Add an optional message';
 const MAXIMUM_CHARACTERS = 300;
 
 function characters (maximum, current) {
@@ -15,19 +14,23 @@ function characters (maximum, current) {
 }
 
 function img (image) {
-	return image ? (<img className="email-article__message-image" src={image} />) : null;
+	return image ? (<div className="email-article__message-image"><img src={image} /></div>) : null;
+}
+
+function labelText (image) {
+	return image ? 'Add an optional message to this chart' : 'Add an optional message';
 }
 
 export default ({customMessage, messageText, image, onMessageTyping, messageLength}) => {
 	if (customMessage) {
 		return (
 			<div className="email-article__message o-forms--wide">
-			<label className="email-article__message--label o-forms__label">{LABEL_TEXT}
+			<label className="email-article__message--label o-forms__label">{labelText(image)}
 			{characters(MAXIMUM_CHARACTERS, messageLength)}
 			</label>
 			{img(image)}
 			<textarea
-			className="o-forms__textarea email-article__message--textarea"
+			className="o-forms__textarea email-article__message-textarea"
 			type="text"
 			inputMode="latin-prose"
 			maxLength={MAXIMUM_CHARACTERS}
