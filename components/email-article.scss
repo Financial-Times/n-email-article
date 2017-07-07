@@ -9,7 +9,7 @@
 	font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
 
 	&.email-article--open {
-		max-height: 920px;
+		max-height: 1080px;
 		transition: max-height 0.5s ease-in;
 		overflow: hidden;
 	}
