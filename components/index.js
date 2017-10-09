@@ -37,7 +37,6 @@ export default class extends React.Component {
 							onEmailAddressChange={(index, value) => dispatch(actions.emailAddressChange(index, value))}
 							onAddEmailAddress={() => dispatch(actions.addEmailAddress())}
 							onRemoveEmailAddress={index => dispatch(actions.removeEmailAddress(index))}
-							customMessage={this.props.customMessage}
 							image={this.state.imageUrl}
 							messageText={this.state.messageText}
 							onMessageTyping={(value) => dispatch(actions.messageTextChange(value))}
@@ -57,7 +56,6 @@ export default class extends React.Component {
 							onEmailAddressChange={(index, value) => dispatch(actions.emailAddressChange(index, value))}
 							onAddEmailAddress={() => dispatch(actions.addEmailAddress())}
 							onRemoveEmailAddress={index => dispatch(actions.removeEmailAddress(index))}
-							customMessage={this.props.customMessage}
 							image={this.state.imageUrl}
 							messageText={this.state.messageText}
 							onMessageTyping={(value) => dispatch(actions.messageTextChange(value))}
@@ -77,7 +75,6 @@ export default class extends React.Component {
 							onEmailAddressChange={(index, value) => dispatch(actions.emailAddressChange(index, value))}
 							onAddEmailAddress={() => dispatch(actions.addEmailAddress())}
 							onRemoveEmailAddress={index => dispatch(actions.removeEmailAddress(index))}
-							customMessage={this.props.customMessage}
 							image={this.state.imageUrl}
 							messageText={this.state.messageText}
 							onMessageTyping={(value) => dispatch(actions.messageTextChange(value))}

@@ -14,7 +14,7 @@ const randomContent = (
 
 export default class extends React.Component {
 
-	onDemosConfigChange (mode, apiResponses, customMessage) {
+	onDemosConfigChange (mode, apiResponses) {
 		// get rid of old stuff and do it all over again
 		Array.from(document.querySelectorAll('[data-n-article-email-container]')).forEach(view => view.innerHTML = null)
 
@@ -24,9 +24,6 @@ export default class extends React.Component {
 
 		// mock the API calls
 		Object.keys(apiResponses).map(api => this.data.api[api] = apiResponses[api])
-
-		// set the custom message flag value
-		this.data.customMessage = customMessage
 	}
 
 	onToggleOpen (id) {
@@ -39,8 +36,7 @@ export default class extends React.Component {
 				isTop: isTop,
 				store: this.data.store,
 				actions: this.data.actions,
-				dispatch: this.data.dispatch,
-				customMessage: this.data.customMessage
+				dispatch: this.data.dispatch
 			}
 			this.views[id] = React.createElement(EmailArticleView, props)
 			const container = document.querySelector(`[data-n-article-email-${id}-container]`)
@@ -58,8 +54,8 @@ export default class extends React.Component {
 				<div className="article" data-content-id="737195aa-1347-11e6-839f-292294709880">
 					<div className="demos__config">
 						<DemosConfig
-							onConfigChange={(mode, apiResponses, customMessage) => {
-								return this.onDemosConfigChange(mode, apiResponses, customMessage)}
+							onConfigChange={(mode, apiResponses) => {
+								return this.onDemosConfigChange(mode, apiResponses)}
 							}
 						/>
 					</div>
