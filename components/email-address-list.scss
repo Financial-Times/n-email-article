@@ -1,56 +1,60 @@
 .email-address {
-
 	margin: $spacing-unit 0 0;
+}
 
-	.email-address__label {
-		display: block;
-		font-size: 16px;
-		margin-bottom: $spacing-unit;
+.email-address__label {
+	display: block;
+	font-size: 16px;
+	margin-bottom: $spacing-unit;
+}
+
+.email-address__item {
+	margin: $spacing-unit 0 0;
+	padding: 0; // overrides o-forms
+}
+
+.email-address__input-button {
+	display: table;
+	line-height: 1em;
+}
+
+.email-address__input {
+	@include oTypographySans($scale: 0);
+	display: table-cell;
+	width: 100%;
+}
+
+
+
+.email-address__note {
+	margin-top: 8px;
+	font-size: 14px;
+}
+
+.email-address__gift-count {
+	font-weight: 600; // semi bold
+}
+
+
+.email-address__button {
+	@include oButtons();
+	@include oButtonsTheme(mono);
+
+	//overwrite suffix padding to fit with form
+	&.email-address__button {
+		padding: 2px 0;
 	}
 
-	.email-address__item {
-		margin: $spacing-unit 0 0;
-		padding: 0; // overrides o-forms
+	> i {
+		text-indent: 100%;
+		overflow: hidden;
 	}
+}
 
-	.email-address__input-button {
-		display: table;
-		line-height: 1em;
-	}
+.email-address__button--add > i {
+	@include oIconsGetIcon('plus', #666666, 32, $iconset-version: 1);
+}
 
-	.email-address__input {
-		@include oTypographySans($scale: 0);
-		display: table-cell;
-		width: 100%;
-	}
-
-	.email-address__button {
-		button {
-			padding: 2px 0;
-		}
-
-		i {
-			text-indent: 100%;
-			overflow: hidden;
-		}
-
-		.email-address__button--add {
-			@include oIconsGetIcon('plus', #666666, 32, $iconset-version: 1);
-		}
-
-		.email-address__button--remove {
-			@include oIconsGetIcon('minus', #666666, 32, $iconset-version: 1);
-		}
-
-	}
-
-	.email-address__note {
-		margin-top: 8px;
-		font-size: 14px;
-	}
-
-	.email-address__gift-count {
-		font-weight: 600; // semi bold
-	}
-
+.email-address__button--remove > i {
+	@include oIconsGetIcon('minus', #666666, 32, $iconset-version: 1);
 }

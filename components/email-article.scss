@@ -25,6 +25,8 @@
 	}
 
 	.email-article__close {
+		@include oButtons();
+		@include oButtonsTheme(mono);
 		float: right;
 		margin: 8px 8px 0 0;
 		border: 0;
@@ -53,6 +55,9 @@
 	}
 
 	.email-article__submit {
+		@include oButtons();
+		@include oButtonsSize(big);
+		@include oButtonsTheme(primary);
 		width: 100%;
 		margin: 0 0 $spacing-unit;
 		text-transform: none;
