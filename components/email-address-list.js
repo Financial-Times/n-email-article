@@ -54,11 +54,11 @@ export default class extends React.Component {
 			const lastInput = index + 1 === this.props.items.length;
 			const action = (maxItems === 1 || lastInput && index + 1 < maxItems) ? 'add' : 'remove'
 			const button = (
-					<div className="email-address__button o-forms__suffix">
-						<button type="button" className="o-buttons o-buttons--mono"
-										onClick={() => action === 'add' ? this.props.onAdd() : this.props.onRemove(index)}
-										disabled={maxItems === 1}>
-							<i className={`email-address__button--${action}`}>{action}</i>
+					<div className="email-address__suffix o-forms__suffix">
+						<button type="button" className={`email-address__button email-address__button--${action}`}
+								onClick={() => action === 'add' ? this.props.onAdd() : this.props.onRemove(index)}
+								disabled={maxItems === 1}>
+							<i>{action}</i>
 						</button>
 					</div>
 			)
