@@ -1,5 +1,5 @@
 import React from 'preact-compat'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'preact-compat'
 
 import { EmailArticleData, EmailArticleView } from '..'
 
