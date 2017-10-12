@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact-compat';
 
 import GiftOrNotSelection from './gift-or-not-selection';
 import EmailAddressList from './email-address-list';
