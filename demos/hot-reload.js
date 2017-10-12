@@ -1,7 +1,7 @@
 // in the examples, we use hot reloading for rapid development
 import { AppContainer } from 'react-hot-loader';
 
-import React from 'react';
+import React from 'preact-compat';
 import ReactDOM from 'react-dom';
 
 import '../main.scss';

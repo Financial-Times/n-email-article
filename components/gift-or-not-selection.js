@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact-compat';
 
 function giftLabelText (credit, monthlyAllowance) {
 	if (credit > 0) return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact-compat';
 import { modes } from '../data/constants';
 import EmailSubOrGiftArticle from './email-sub-or-gift-article';
 import EmailSubOnlyArticle from './email-sub-only-article';

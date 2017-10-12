@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact-compat';
 
 import EmailAddressList from './email-address-list';
 import Footnote from './footnote';
