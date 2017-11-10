@@ -1,7 +1,7 @@
-const path = require('path')
-const webpack = require('webpack')
+const path = require('path');
+const webpack = require('webpack');
 
-const isDevServer = process.argv.find(v => v.indexOf('webpack-dev-server') !== -1)
+const isDevServer = process.argv.find(v => v.indexOf('webpack-dev-server') !== -1);
 
 module.exports = {
 	entry: !isDevServer ? ['./demos/non-hot-reload'] : [
@@ -45,4 +45,4 @@ module.exports = {
 			'process.env.NODE_ENV': '"production"'
 		})
 	]
-}
+};

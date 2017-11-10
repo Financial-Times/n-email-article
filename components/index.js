@@ -7,21 +7,21 @@ import EmailFreeArticle from './email-free-article';
 export default class extends React.Component {
 
 	constructor (props) {
-		super(props)
+		super(props);
 	}
 
 	componentWillMount () {
-		this.setState(this.props.store.getState())
-		this.storeUnsubscribe = this.props.store.subscribe(() => this.setState(this.props.store.getState()))
+		this.setState(this.props.store.getState());
+		this.storeUnsubscribe = this.props.store.subscribe(() => this.setState(this.props.store.getState()));
 	}
 
 	componentWillUnmount () {
-		this.storeUnsubscribe()
+		this.storeUnsubscribe();
 	}
 
 	render () {
-		const actions = this.props.actions
-		const dispatch = this.props.dispatch
+		const actions = this.props.actions;
+		const dispatch = this.props.dispatch;
 
 		if (this.state.mode === modes.GIFT_OR_SUB) {
 			return (
@@ -37,7 +37,6 @@ export default class extends React.Component {
 							onEmailAddressChange={(index, value) => dispatch(actions.emailAddressChange(index, value))}
 							onAddEmailAddress={() => dispatch(actions.addEmailAddress())}
 							onRemoveEmailAddress={index => dispatch(actions.removeEmailAddress(index))}
-							customMessage={this.props.customMessage}
 							image={this.state.imageUrl}
 							messageText={this.state.messageText}
 							onMessageTyping={(value) => dispatch(actions.messageTextChange(value))}
@@ -46,7 +45,7 @@ export default class extends React.Component {
 							isSending={this.state.isSending}
 							onClose={() => dispatch(this.props.isTop ? actions.closeTop() : actions.closeBottom())}
 					/>
-			)
+			);
 		} else if (this.state.mode === modes.SUB_ONLY) {
 			return (
 					<EmailSubOnlyArticle
@@ -57,7 +56,6 @@ export default class extends React.Component {
 							onEmailAddressChange={(index, value) => dispatch(actions.emailAddressChange(index, value))}
 							onAddEmailAddress={() => dispatch(actions.addEmailAddress())}
 							onRemoveEmailAddress={index => dispatch(actions.removeEmailAddress(index))}
-							customMessage={this.props.customMessage}
 							image={this.state.imageUrl}
 							messageText={this.state.messageText}
 							onMessageTyping={(value) => dispatch(actions.messageTextChange(value))}
@@ -66,7 +64,7 @@ export default class extends React.Component {
 							isSending={this.state.isSending}
 							onClose={() => dispatch(this.props.isTop ? actions.closeTop() : actions.closeBottom())}
 					/>
-			)
+			);
 		} else if (this.state.mode === modes.FREE) {
 			return (
 					<EmailFreeArticle
@@ -77,7 +75,6 @@ export default class extends React.Component {
 							onEmailAddressChange={(index, value) => dispatch(actions.emailAddressChange(index, value))}
 							onAddEmailAddress={() => dispatch(actions.addEmailAddress())}
 							onRemoveEmailAddress={index => dispatch(actions.removeEmailAddress(index))}
-							customMessage={this.props.customMessage}
 							image={this.state.imageUrl}
 							messageText={this.state.messageText}
 							onMessageTyping={(value) => dispatch(actions.messageTextChange(value))}
@@ -86,7 +83,7 @@ export default class extends React.Component {
 							isSending={this.state.isSending}
 							onClose={() => dispatch(this.props.isTop ? actions.closeTop() : actions.closeBottom())}
 					/>
-			)
+			);
 		}
 	}
 }

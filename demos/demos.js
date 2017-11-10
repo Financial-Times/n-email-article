@@ -1,37 +1,34 @@
-import React from 'preact-compat'
-import ReactDOM from 'preact-compat'
+import React from 'preact-compat';
+import ReactDOM from 'preact-compat';
 
-import { EmailArticleData, EmailArticleView } from '..'
+import { EmailArticleData, EmailArticleView } from '..';
 
-import DemosConfig from './demos-config'
+import DemosConfig from './demos-config';
 
 const randomContent = (
 		<div>
 			<p><em>Hint: Click on the email icon above</em></p>
 			<p>Lorem ipsum dolor sit amet, ea nonumy lucilius nam, pri ei tale soluta. Et nibh minimum duo, mea ad omnis feugait argumentum, doming deseruisse est at. Duo volumus detracto ne. Nam consul albucius sapientem id, decore prodesset consequuntur est ne. Ex dicit eirmod vituperata vel.</p>
 		</div>
-)
+);
 
 export default class extends React.Component {
 
-	onDemosConfigChange (mode, apiResponses, customMessage) {
+	onDemosConfigChange (mode, apiResponses) {
 		// get rid of old stuff and do it all over again
-		Array.from(document.querySelectorAll('[data-n-article-email-container]')).forEach(view => view.innerHTML = null)
+		Array.from(document.querySelectorAll('[data-n-article-email-container]')).forEach(view => view.innerHTML = null);
 
 		// non-React `next-article` will lazily load this React component and so we're doing similar here
-		this.views = {}
-		this.data = new EmailArticleData(mode)
+		this.views = {};
+		this.data = new EmailArticleData(mode);
 
 		// mock the API calls
-		Object.keys(apiResponses).map(api => this.data.api[api] = apiResponses[api])
-
-		// set the custom message flag value
-		this.data.customMessage = customMessage
+		Object.keys(apiResponses).map(api => this.data.api[api] = apiResponses[api]);
 	}
 
 	onToggleOpen (id) {
 		// non-React `next-article` will lazily load this React component and so we're doing similar here
-		const isTop = id === 'top'
+		const isTop = id === 'top';
 		// lazily load the view
 		if (!this.views[id]) {
 			const props = {
@@ -39,16 +36,15 @@ export default class extends React.Component {
 				isTop: isTop,
 				store: this.data.store,
 				actions: this.data.actions,
-				dispatch: this.data.dispatch,
-				customMessage: this.data.customMessage
-			}
-			this.views[id] = React.createElement(EmailArticleView, props)
-			const container = document.querySelector(`[data-n-article-email-${id}-container]`)
-			ReactDOM.render(this.views[id], container)
+				dispatch: this.data.dispatch
+			};
+			this.views[id] = React.createElement(EmailArticleView, props);
+			const container = document.querySelector(`[data-n-article-email-${id}-container]`);
+			ReactDOM.render(this.views[id], container);
 		}
 		// toggle showing/hiding of the view
-		if (isTop) this.data.dispatch(this.data.actions.toggleOpenTop())
-		else this.data.dispatch(this.data.actions.toggleOpenBottom())
+		if (isTop) this.data.dispatch(this.data.actions.toggleOpenTop());
+		else this.data.dispatch(this.data.actions.toggleOpenBottom());
 	}
 
 	render () {
@@ -58,8 +54,8 @@ export default class extends React.Component {
 				<div className="article" data-content-id="737195aa-1347-11e6-839f-292294709880">
 					<div className="demos__config">
 						<DemosConfig
-							onConfigChange={(mode, apiResponses, customMessage) => {
-								return this.onDemosConfigChange(mode, apiResponses, customMessage)}
+							onConfigChange={(mode, apiResponses) => {
+								return this.onDemosConfigChange(mode, apiResponses);}
 							}
 						/>
 					</div>
@@ -77,7 +73,7 @@ export default class extends React.Component {
 						{randomContent}
 					</div>
 				</div>
-		)
+		);
 	}
 
 }
