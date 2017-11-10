@@ -11,21 +11,21 @@ function post (url, emailAddresses, articleId, customMessage, imageUrl) {
 			customMessage: customMessage,
 			imageUrl: imageUrl
 		})
-	})
+	});
 }
 
 export default class {
 
 	creditInfo () {
-		return fetch('/article-email/credits', { credentials: 'same-origin' })
+		return fetch('/article-email/credits', { credentials: 'same-origin' });
 	}
 
 	gift (emailAddresses, articleId, customMessage, imageUrl) {
-		return post('/article-email/gift', emailAddresses, articleId, customMessage, imageUrl)
+		return post('/article-email/gift', emailAddresses, articleId, customMessage, imageUrl);
 	}
 
 	nonGift (emailAddresses, articleId, customMessage, imageUrl) {
-		return post('/article-email/send', emailAddresses, articleId, customMessage, imageUrl)
+		return post('/article-email/send', emailAddresses, articleId, customMessage, imageUrl);
 	}
 
 }

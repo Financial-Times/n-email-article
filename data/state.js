@@ -1,4 +1,4 @@
-import { actions, modes } from './constants'
+import { actions, modes } from './constants';
 
 const defaultState = {
 	isReady: false,
@@ -13,7 +13,7 @@ const defaultState = {
 	imageUrl: null,
 	messageLength: 0,
 	isSending: false
-}
+};
 
 const doNotTrackActions = [
 	actions.EMAIL_ADDRESS_CHANGE,
@@ -40,43 +40,43 @@ function track (state, action) {
 }
 
 export default function reducer (state = defaultState, action) {
-	track(state, action)
+	track(state, action);
 	switch (action.type) {
 		case actions.MODE_SET:
 				return Object.assign({}, state, {
 					mode: action.mode,
 					isReady: action.mode !== modes.GIFT_OR_SUB, // need to get credit info
 					isGift: action.mode === modes.GIFT_OR_SUB
-				})
+				});
 
 		case actions.ADD_IMAGE_URL:
-			return Object.assign({}, state, { imageUrl: action.imageUrl })
+			return Object.assign({}, state, { imageUrl: action.imageUrl });
 
 		case actions.TOGGLE_OPEN_TOP:
-				return Object.assign({}, state, { isOpenTop: !state.isOpenTop })
+				return Object.assign({}, state, { isOpenTop: !state.isOpenTop });
 
 		case actions.TOGGLE_OPEN_BOTTOM:
-				return Object.assign({}, state, { isOpenBottom: !state.isOpenBottom })
+				return Object.assign({}, state, { isOpenBottom: !state.isOpenBottom });
 
 		case actions.CLOSE_TOP:
-				return Object.assign({}, state, { isOpenTop: false })
+				return Object.assign({}, state, { isOpenTop: false });
 
 		case actions.CLOSE_BOTTOM:
-				return Object.assign({}, state, { isOpenBottom: false })
+				return Object.assign({}, state, { isOpenBottom: false });
 
 		case actions.GET_CREDIT_INFO:
-				return state
+				return state;
 
 		case actions.GET_CREDIT_INFO_SUCCESS:
-				return Object.assign({}, state, { credit: action.credit, monthlyAllowance: action.monthlyAllowance, isGift: action.credit > 0, emailAddresses: [''], isReady: true })
+				return Object.assign({}, state, { credit: action.credit, monthlyAllowance: action.monthlyAllowance, isGift: action.credit > 0, emailAddresses: [''], isReady: true });
 
 		case actions.IS_GIFT_CHANGE:
 					if (action.isGift && state.emailAddresses.length > state.credit)
 						return Object.assign({}, state, {
 							isGift: action.isGift,
 							emailAddresses: state.emailAddresses.slice(0, state.credit)
-						})
-					else return Object.assign({}, state, { isGift: action.isGift })
+						});
+					else return Object.assign({}, state, { isGift: action.isGift });
 
 		case actions.EMAIL_ADDRESS_CHANGE:
 					// some users comma-separate addresses in a single field
@@ -94,35 +94,35 @@ export default function reducer (state = defaultState, action) {
 		case actions.ADD_EMAIL_ADDRESS:
 					return Object.assign({}, state, {
 						emailAddresses: state.emailAddresses.concat('')
-					})
+					});
 
 		case actions.REMOVE_EMAIL_ADDRESS:
 					return Object.assign({}, state, {
 						emailAddresses: state.emailAddresses.filter((x, i) => i !== action.index)
-					})
+					});
 
 		case actions.MESSAGE_TEXT_CHANGE:
 					return Object.assign({}, state, {
 						messageText: action.value,
 						messageLength: action.value.length
-					})
+					});
 
 		case actions.VALIDATION_RESULTS:
 				return Object.assign({}, state, {
 						emailAddressErrors: action.results
-				})
+				});
 
 		case actions.SEND:
-					return Object.assign({}, state, { isSending: true })
+					return Object.assign({}, state, { isSending: true });
 
 		case actions.SEND_SUCCESS:
-					return Object.assign({}, state, { isSending: false, isOpenTop: false, isOpenBottom: false, isReady: false, messageText: '', messageLength: 0 })
+					return Object.assign({}, state, { isSending: false, isOpenTop: false, isOpenBottom: false, isReady: false, messageText: '', messageLength: 0 });
 
 		case actions.SEND_FAILURE:
-			return Object.assign({}, state, { isSending: false })
+			return Object.assign({}, state, { isSending: false });
 
 		default:
-					return state
+					return state;
 
 	}
 }

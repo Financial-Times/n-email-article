@@ -8,7 +8,7 @@ function giftLabelText (credit, monthlyAllowance) {
 					You can send <span className="gift-or-not__gift-count">{credit} gift article{credit !== 1 ? 's' : ''}</span> this month
 				</div>
 			</div>
-	)
+	);
 	else return (
 			<div className="gift-or-not__option-text">
 				<div className="gift-or-not__gift-note">
@@ -16,7 +16,7 @@ function giftLabelText (credit, monthlyAllowance) {
 					You will be able to send {monthlyAllowance} more next month
 				</div>
 			</div>
-	)
+	);
 }
 
 export default ({ isGift, onIsGiftChange, credit, monthlyAllowance }) => (
@@ -40,4 +40,4 @@ export default ({ isGift, onIsGiftChange, credit, monthlyAllowance }) => (
 			</label>
 		</div>
 	</div>
-)
+);

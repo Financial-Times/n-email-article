@@ -5,12 +5,12 @@ const MAXIMUM_CHARACTERS = 300;
 function characters (maximum, current) {
 	const remaining = maximum - current;
 	const limitedClass = remaining <= 10 ? ' email-article__message-characters--limited' : '';
-	const remainingClasses = `email-article__message-characters${limitedClass}`
+	const remainingClasses = `email-article__message-characters${limitedClass}`;
 	return (
 		<span className={remainingClasses}>
 			{remaining} character{remaining !== 1 ? 's' : ''} remaining
 		</span>
-	)
+	);
 }
 
 function img (image) {
@@ -38,5 +38,5 @@ export default ({messageText, image, onMessageTyping, messageLength}) => {
 		value={messageText}
 		onChange={event => onMessageTyping(event.target.value)}></textarea>
 		</div>
-	)
-}
+	);
+};

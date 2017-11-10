@@ -16,10 +16,10 @@ export const actions = {
 	CLOSE_TOP: 'CLOSE_TOP',
 	CLOSE_BOTTOM: 'CLOSE_BOTTOM',
 	ADD_IMAGE_URL: 'ADD_IMAGE_URL'
-}
+};
 
 export const modes = {
 	GIFT_OR_SUB: 'GIFT_OR_SUB',
 	SUB_ONLY: 'SUB_ONLY',
 	FREE: 'FREE'
-}
+};
